@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- === SEO OPTIMIZATION & AI OVERVIEW === -->
+    <title>Tentang Kami | Vespa Matic Dealer Resmi</title>
+    <meta name="description" content="Pelajari lebih lanjut tentang Vespa Matic Dealer. Kami adalah dealer resmi terpercaya yang berdedikasi memberikan layanan penjualan dan purna jual Vespa terbaik di Indonesia.">
+    <meta name="keywords" content="Tentang Vespa Matic, Profil Dealer Vespa, Sejarah Vespa, Showroom Vespa, Dealer Resmi Vespa">
+    <meta name="author" content="VespaMatic Dealer">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="https://www.vespamaticdealer.com/about.html">
+
+    <!-- Open Graph (Facebook, WhatsApp, LinkedIn) -->
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.vespamaticdealer.com/about.html">
+    <meta property="og:title" content="Tentang Kami | Vespa Matic Dealer Resmi">
+    <meta property="og:description" content="Pelajari lebih lanjut tentang dedikasi kami dalam memberikan pengalaman berkendara Vespa terbaik untuk Anda.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1598466601444-fbc8651c68e1?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:site_name" content="VespaMatic Dealer">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tentang Kami | Vespa Matic Dealer Resmi">
+    <meta name="twitter:description" content="Pelajari lebih lanjut tentang dedikasi kami dalam memberikan pengalaman berkendara Vespa terbaik untuk Anda.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1598466601444-fbc8651c68e1?auto=format&fit=crop&w=1200&q=80">
+
+    <!-- === FAVICON MAXIMIZATION === -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#E07A5F">
+
+    <!-- === PAGESPEED PRECONNECTS === -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- Variabel Warna --- */
+        :root {
+            --toasted-coral: #E07A5F;
+            --light-teal: #4DB6AC;
+            --coral-hover: #c9684f;
+        }
+
+        /* --- Fix Anti Goyang Kanan Kiri & Hapus Jarak Body --- */
+        html, body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
+            margin: 0;
+            padding: 0; 
+        }
+
+        /* --- Utilitas Warna Custom --- */
+        .text-coral { color: var(--toasted-coral); }
+        .text-teal { color: var(--light-teal); }
+        .bg-coral { background-color: var(--toasted-coral); }
+        .bg-teal { background-color: var(--light-teal); }
+        
+        .btn-coral {
+            background-color: var(--toasted-coral);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 25px;
+            transition: 0.3s;
+        }
+        .btn-coral:hover { background-color: var(--coral-hover); color: white; transform: translateY(-2px); }
+        
+        /* --- Navbar --- */
+        .navbar .nav-link { font-weight: 500; color: #333; transition: 0.3s; }
+        .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--toasted-coral); }
+
+        /* --- About Hero Section --- */
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('image/page\ tittle.webp') center/cover;
+            min-height: 50vh; 
+            display: flex;
+            align-items: center;
+            padding: 40px 0;
+            padding-top: 96px; /* Offset agar teks tidak tertutup navbar fixed-top */
+            margin-top: 0; 
+        }
+        .about-title { font-size: 3rem; font-weight: 700; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        
+        @media (max-width: 768px) {
+            .about-title { font-size: 2rem; }
+            .about-hero { text-align: center; }
+        }
+
+        /* --- Manfaat Card --- */
+        .benefit-card {
+            border: 1px solid #eee;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .benefit-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .benefit-card i { font-size: 2rem; color: var(--light-teal); margin-bottom: 15px; }
+
+        /* --- Floating Buttons --- */
+        .float-btn {
+            position: fixed;
+            right: 25px;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .float-wa {
+            bottom: 25px;
+            background-color: #25D366;
+        }
+        .float-wa:hover { background-color: #1ebe58; color: white; transform: scale(1.1); }
+        
+        .float-top {
+            bottom: 95px;
+            background-color: var(--light-teal);
+            display: none;
+            border: none;
+            cursor: pointer;
+        }
+        .float-top:hover { background-color: #3e9e95; color: white; transform: scale(1.1); }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigasi -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-2">
+        <div class="container">
+            <a class="navbar-brand text-coral fw-bold" href="index.html" aria-label="Beranda VespaMatic">
+                Vespa<span class="text-teal">Matic</span> <br>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 active" href="about.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="produk.html">Produk</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="terbaru.html">Terbaru</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3" href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bagian Hero Khusus About -->
+    <section class="about-hero text-white">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h1 class="about-title">Mengenal Lebih Dekat VespaMatic</h1>
+                    <p class="lead mb-0">Dealer resmi terpercaya yang berdedikasi memberikan pengalaman berkendara gaya Italia terbaik untuk Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bagian Cerita & Visi Misi -->
+    <section class="py-5 bg-white">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="image/dealer.webp" class="img-fluid rounded-4 shadow" alt="Dealer Vespa Matic" loading="lazy" width="800" height="533">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h6 class="text-teal fw-bold text-uppercase tracking-wide mb-2">Cerita Kami</h6>
+                    <h2 class="fw-bold mb-4">Mitra Perjalanan <span class="text-coral">Gaya Hidup</span> Anda</h2>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">
+                        Sejak didirikan, VespaMatic telah berkomitmen untuk tidak sekadar menjual skuter, tetapi menghadirkan gaya hidup kultural yang tak lekang oleh waktu. Kami adalah dealer resmi berstandar 3S (Sales, Service, Sparepart) yang memastikan setiap pelanggan mendapatkan pengalaman eksklusif dari titik pembelian hingga perawatan berkala.
+                    </p>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-bullseye fs-3 text-coral me-3 mt-1" aria-hidden="true"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Visi</h5>
+                                    <p class="text-muted small">Menjadi dealer Vespa nomor satu di Indonesia dengan indeks kepuasan pelanggan tertinggi.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-rocket fs-3 text-coral me-3 mt-1" aria-hidden="true"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Misi</h5>
+                                    <p class="text-muted small">Menyediakan layanan responsif, transparan, dan purna jual yang terjamin kualitasnya.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fasilitas Showroom (Bagian Baru 1) -->
+    <section class="py-5 bg-light">
+        <div class="container py-4">
+            <div class="row align-items-center flex-column-reverse flex-lg-row">
+                <div class="col-lg-6 pe-lg-5 mt-4 mt-lg-0">
+                    <h6 class="text-teal fw-bold text-uppercase tracking-wide mb-2">Fasilitas Showroom</h6>
+                    <h2 class="fw-bold mb-4">Pengalaman Premium di <span class="text-coral">Setiap Kunjungan</span></h2>
+                    <p class="text-muted mb-4" style="line-height: 1.8;">
+                        Kami memahami bahwa pelanggan Vespa memiliki standar yang tinggi. Oleh karena itu, dealer kami dilengkapi dengan fasilitas menyeluruh untuk memastikan kenyamanan Anda selama bertransaksi maupun saat menunggu servis rutin.
+                    </p>
+                    <ul class="list-unstyled text-muted">
+                        <li class="mb-3"><i class="fas fa-check-circle text-teal me-2" aria-hidden="true"></i> <strong>Lounge Eksklusif:</strong> Ruang tunggu ber-AC, WiFi cepat, dan ragam minuman gratis.</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-teal me-2" aria-hidden="true"></i> <strong>Official Merchandise:</strong> Area khusus yang memajang helm, apparel, dan aksesoris original Vespa.</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-teal me-2" aria-hidden="true"></i> <strong>Area Test Ride:</strong> Lintasan aman di area dealer untuk mencoba unit Vespa impian Anda.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <img src="image/tentang kami.webp" class="img-fluid rounded-4 shadow" alt="Fasilitas Dealer Vespa Matic" loading="lazy" width="800" height="533">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial & Manfaat (Diubah jadi bg-white agar warna selang-seling) -->
+    <section class="py-5 bg-white">
+        <div class="container">
+            <h3 class="text-center fw-bold mb-5">Kenapa Memilih <span class="text-coral">Kami?</span></h3>
+            <div class="row g-4">
+                <div class="col-md-3 col-6">
+                    <div class="benefit-card bg-light shadow-sm border-0">
+                        <i class="fas fa-truck-fast" aria-hidden="true"></i>
+                        <h6 class="fw-bold">Fast Delivery</h6>
+                        <p class="text-muted small mb-0">Pengiriman unit ke rumah dalam 24 jam.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="benefit-card bg-light shadow-sm border-0">
+                        <i class="fas fa-file-invoice-dollar" aria-hidden="true"></i>
+                        <h6 class="fw-bold">Easy Credit</h6>
+                        <p class="text-muted small mb-0">Cicilan ringan dengan bunga rendah.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="benefit-card bg-light shadow-sm border-0">
+                        <i class="fas fa-tools" aria-hidden="true"></i>
+                        <h6 class="fw-bold">Certified Servis</h6>
+                        <p class="text-muted small mb-0">Bengkel resmi dengan alat standar global.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="benefit-card bg-light shadow-sm border-0">
+                        <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                        <h6 class="fw-bold">Security Provider</h6>
+                        <p class="text-muted small mb-0">Asuransi dan garansi resmi pabrik.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keluarga Besar Vespa / Komunitas (Bagian Baru 2) -->
+    <section class="py-5 bg-light">
+        <div class="container py-4 text-center">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-8">
+                    <h6 class="text-teal fw-bold text-uppercase tracking-wide mb-2">Keluarga Besar Vespa</h6>
+                    <h2 class="fw-bold mb-3">Lebih dari Sekadar <span class="text-coral">Dealer</span></h2>
+                    <p class="text-muted" style="line-height: 1.8;">
+                        VespaMatic bukan hanya tempat bertransaksi, tapi juga rumah bagi para pecinta Vespa. Kami secara aktif mendukung dan menyelenggarakan berbagai kegiatan komunitas roda dua. Mulai dari Sunday Morning Ride (Sunmori), bakti sosial ramadan, hingga workshop perawatan ringan khusus untuk anggota komunitas.
+                    </p>
+                </div>
+            </div>
+            <!-- Gambar Lebar Komunitas -->
+            <img src="image/sunmori.webp" class="img-fluid rounded-4 shadow-sm w-100" alt="Komunitas Vespa Matic Berkumpul" loading="lazy" style="object-fit: cover; max-height: 450px;">
+        </div>
+    </section>
+
+    <!-- Galeri Showroom -->
+    <section class="py-5 bg-white">
+        <div class="container py-4 text-center">
+            <h2 class="fw-bold mb-5">Galeri <span class="text-coral">Showroom</span> Kami</h2>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <img src="image/tentang kami showroom vespa.webp" class="img-fluid rounded shadow-sm" alt="Showroom Vespa 1" loading="lazy">
+                </div>
+                <div class="col-md-4">
+                    <img src="image/showroom.webp" class="img-fluid rounded shadow-sm" alt="Showroom Vespa 2" loading="lazy">
+                </div>
+                <div class="col-md-4">
+                    <img src="image/vespa showroom.webp" class="img-fluid rounded shadow-sm" alt="Showroom Vespa 3" loading="lazy">
+                </div>
+            </div>
+        </div>   
+    </section>
+
+    <!-- Call To Action (CTA) Section -->
+    <section class="py-5 text-center text-white shadow-sm" style="background-color: var(--toasted-coral);">
+        <div class="container py-3">
+            <h2 class="fw-bold mb-3">Tunggu Apa Lagi? Wujudkan Vespa Impianmu Sekarang!</h2>
+            <p class="lead mb-4">Dapatkan penawaran spesial, cicilan ringan, dan bonus eksklusif khusus pemesanan hari ini.</p>
+            <div class="d-flex justify-content-center flex-wrap gap-2">
+                <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="btn btn-light btn-lg rounded-pill px-4 fw-bold text-coral" style="color: var(--toasted-coral) !important;">
+                    <i class="fab fa-whatsapp me-2"></i>Konsultasi via WhatsApp
+                </a>
+                <a href="produk.html" class="btn btn-outline-light btn-lg rounded-pill px-4 fw-bold">
+                    Eksplorasi Produk
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5 text-center text-md-start">
+        <div class="container">
+            <div class="row">
+                <!-- Kolom 1 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h4 class="text-white fw-bold mb-3">Vespa<span class="text-teal">Matic</span></h4>
+                    <p class="text-white">Solusi berkendara penuh gaya untuk Anda. Dealer resmi dengan pelayanan prima.</p>
+                    <div class="d-flex justify-content-center justify-content-md-start mt-3">
+                        <a href="#" class="text-white fs-4 me-3" aria-label="Kunjungi Facebook Vespa Matic"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#" class="text-white fs-4 me-3" aria-label="Kunjungi Instagram Vespa Matic"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" class="text-white fs-4" aria-label="Kunjungi YouTube Vespa Matic"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <!-- Kolom 2 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-white fw-bold mb-3">Tautan Cepat</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="produk.html" class="text-white text-decoration-none">Lini Produk</a></li>
+                        <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none">Blog</a></li>
+                    </ul>
+                </div>
+                <!-- Kolom 3 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-white fw-bold mb-3">Layanan Kami</h5>
+                    <ul class="list-unstyled text-white">
+                        <li class="mb-2"><i class="fas fa-motorcycle text-teal me-2" aria-hidden="true"></i> Penjualan Unit Baru</li>
+                        <li class="mb-2"><i class="fas fa-tools text-teal me-2" aria-hidden="true"></i> Servis Berkala</li>
+                        <li class="mb-2"><i class="fas fa-cogs text-teal me-2" aria-hidden="true"></i> Suku Cadang Asli</li>
+                        <li class="mb-2"><i class="fas fa-file-invoice-dollar text-teal me-2" aria-hidden="true"></i> Konsultasi Kredit</li>
+                    </ul>
+                </div>
+                <!-- Kolom 4 -->
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="text-white fw-bold mb-3">Kontak Info</h5>
+                    <ul class="list-unstyled text-white">
+                        <li class="mb-2"><i class="fas fa-map-marker-alt text-teal me-2" aria-hidden="true"></i> Jl. Raya Vespa No. 123, Malang</li>
+                        <li class="mb-2"><i class="fas fa-phone text-teal me-2" aria-hidden="true"></i> +62 812-3456-7890</li>
+                        <li class="mb-2"><i class="fas fa-envelope text-teal me-2" aria-hidden="true"></i> info@vespamatic.com</li>
+                        <li class="mb-2"><i class="fas fa-clock text-teal me-2" aria-hidden="true"></i> 08:00 - 17:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-secondary mt-4 mb-3">
+            <div class="text-center text-white">
+                <small>&copy; 2026 VespaMatic Dealer. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tombol Floating -->
+    <a href="https://wa.me/6281234567890" target="_blank" class="float-btn float-wa" title="Hubungi via WhatsApp" rel="noopener noreferrer" aria-label="Chat via WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <button onclick="scrollToTop()" id="floatTopBtn" class="float-btn float-top" title="Kembali ke atas" aria-label="Gulir ke atas halaman">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- === AI OVERVIEW STRUCTURED DATA (JSON-LD) for ABOUT PAGE === -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "MotorcycleDealer",
+        "name": "VespaMatic Dealer",
+        "description": "Dealer resmi Vespa Matic. Kami adalah dealer resmi terpercaya yang berdedikasi memberikan layanan penjualan dan purna jual Vespa terbaik di Indonesia. Tersedia lounge eksklusif dan layanan 3S.",
+        "image": "https://images.unsplash.com/photo-1598466601444-fbc8651c68e1?auto=format&fit=crop&w=800&q=80",
+        "telephone": "+6281234567890",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl. Raya Vespa No. 123",
+          "addressLocality": "Malang",
+          "addressRegion": "Jawa Timur",
+          "addressCountry": "ID"
+        }
+      }
+    }
+    </script>
+
+    <!-- Bootstrap 5 JS Bundle dengan atribut defer untuk PageSpeed -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        let topBtn = document.getElementById("floatTopBtn");
+        window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                topBtn.style.display = "flex";
+            } else {
+                topBtn.style.display = "none";
+            }
+        }
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
