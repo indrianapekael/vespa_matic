@@ -256,7 +256,31 @@
                              </h2>
                             <div id="faqServis1" class="accordion-collapse collapse show" data-bs-parent="#faqServisVespa">
                                 <div class="accordion-body">
-                                     Setiap 3.000 KM atau 3 bulan sekali. Servis besar biasanya dilakukan setiap kelipatan 10.000 KM.
+                                     Setiap 3.000 KM atau 3 bulan sekali (mana yang tercapai lebih dulu). Untuk Vespa baru, servis pertama wajib dilakukan pada 1.000 KM pertama.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqServis2">
+                                Apa saja yang diganti saat servis rutin Vespa?
+                                </button>
+                             </h2>
+                            <div id="faqServis2" class="accordion-collapse collapse" data-bs-parent="#faqServisVespa">
+                                <div class="accordion-body">
+                                     Komponen utama yang diganti adalah oli mesin dan oli gardan. Selain itu, dilakukan pengecekan pada filter udara, sistem pengereman, busi, serta pembersihan sektor CVT.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqServis3">
+                                Mengapa harus servis di bengkel resmi Vespa?
+                                </button>
+                             </h2>
+                            <div id="faqServis3" class="accordion-collapse collapse" data-bs-parent="#faqServisVespa">
+                                <div class="accordion-body">
+                                     Selain penggunaan suku cadang orisinal, bengkel resmi memiliki alat diagnostik P.A.D.S untuk mengecek sistem elektronik ECU dan memastikan riwayat servis tercatat agar garansi kendaraan tetap berlaku.
                                 </div>
                             </div>
                         </div>
@@ -347,10 +371,10 @@
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                     <h5 class="footer-heading">Layanan Kami</h5>
                     <ul class="footer-links">
-                        <li><i class="fas fa-motorcycle text-teal me-2"></i> Penjualan Baru</a></li>
-                        <li><i class="fas fa-tools text-teal me-2"></i> Servis Berkala</a></li>
-                        <li><i class="fas fa-cogs text-teal me-2"></i> Suku Cadang</a></li>
-                        <li><i class="fas fa-file-invoice-dollar text-teal me-2"></i> Konsultasi Kredit</a></li>
+                        <li><i class="fas fa-motorcycle text-teal me-2"></i> Penjualan Baru</li>
+                        <li><i class="fas fa-tools text-teal me-2"></i> Servis Berkala</li>
+                        <li><i class="fas fa-cogs text-teal me-2"></i> Suku Cadang</li>
+                        <li><i class="fas fa-file-invoice-dollar text-teal me-2"></i> Konsultasi Kredit</li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -391,11 +415,11 @@
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
             
             if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scroll Down
+                // Scroll Down - Hide Navbar
                 navbar.classList.remove('nav-down');
                 navbar.classList.add('nav-up');
             } else {
-                // Scroll Up
+                // Scroll Up - Show Navbar
                 navbar.classList.remove('nav-up');
                 navbar.classList.add('nav-down');
             }
