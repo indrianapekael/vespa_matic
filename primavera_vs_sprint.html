@@ -61,16 +61,41 @@
             width: 100%;
             max-width: 100vw;
             margin: 0;
-            padding-top: 60px; /* Padding pas untuk mengompensasi tinggi navbar fixed-top */
+            padding: 0;
             background-color: #fcfcfc;
+        }
+
+        /* --- Navbar Sticky Scroll-Up System --- */
+        .navbar {
+            transition: transform 0.4s ease-in-out, background-color 0.3s;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+        .navbar.nav-up {
+            transform: translateY(-100%);
+        }
+        .navbar.nav-down {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- Proportional Spacing Desktop & Mobile --- */
+        body { padding-top: 80px; }
+        
+        @media (max-width: 768px) {
+            body { padding-top: 70px; }
+            h1 { font-size: 1.8rem !important; }
+            .article-content { font-size: 1rem; }
         }
 
         /* --- Utilitas Warna Custom --- */
         .text-coral { color: var(--toasted-coral); }
         .text-teal { color: var(--light-teal); }
         .bg-coral { background-color: var(--toasted-coral); }
-        .btn-coral { background-color: var(--toasted-coral); color: white; border: none; border-radius: 25px; padding: 10px 25px; }
-        .btn-coral:hover { background-color: var(--coral-hover); color: white; }
+        .btn-coral { background-color: var(--toasted-coral); color: white; border: none; border-radius: 25px; padding: 10px 25px; transition: 0.3s; }
+        .btn-coral:hover { background-color: var(--coral-hover); color: white; transform: translateY(-2px); }
         
         /* --- Navbar --- */
         .navbar .nav-link { font-weight: 500; color: #333; transition: 0.3s; }
@@ -87,8 +112,14 @@
         
         figcaption { font-size: 0.85rem; color: #6c757d; text-align: center; margin-top: 8px; font-style: italic; }
         
+        /* --- Author Box Mobile Proportions --- */
         .author-box { display: flex; align-items: center; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 3rem; }
         .author-img { width: 80px; height: 80px; aspect-ratio: 1/1; border-radius: 50%; object-fit: cover; margin-right: 20px; flex-shrink: 0; }
+        
+        @media (max-width: 576px) {
+            .author-box { flex-direction: column; text-align: center; }
+            .author-img { margin-right: 0; margin-bottom: 15px; }
+        }
         
         .share-btn { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: white; margin-right: 10px; transition: 0.3s; text-decoration: none; font-size: 1.1rem;}
         .share-fb { background-color: #1877f2; } 
@@ -99,15 +130,56 @@
         /* --- Floating Buttons --- */
         .float-btn { position: fixed; right: 25px; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; transition: 0.3s; }
         .float-wa { bottom: 25px; background-color: #25D366; }
-        .float-wa:hover { background-color: #1ebe58; color: white; transform: scale(1.1); }
-        .float-top { bottom: 95px; background-color: var(--light-teal); display: none; border: none; cursor: pointer; }
-        .float-top:hover { background-color: #3e9e95; color: white; transform: scale(1.1); }
+        .float-wa:hover { background-color: #1ebe58; transform: scale(1.1); color: white;}
+        .float-top { bottom: 95px; background-color: var(--light-teal); border: none; cursor: pointer; display: none; }
+        .float-top:hover { transform: scale(1.1); color: white;}
+
+        /* --- Related Articles Card --- */
+        .related-card {
+            border: none;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            height: 100%;
+        }
+        .related-card:hover { transform: translateY(-5px); }
+        .related-card img { border-radius: 12px 12px 0 0; height: 200px; object-fit: cover; }
+        .related-card .card-body { padding: 2rem; }
+        .related-card .card-title { font-size: 1.1rem; font-weight: 700; line-height: 1.4; margin-bottom: 0.5rem; }
+        .related-card .card-text { font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; }
+        .btn-baca { background-color: var(--toasted-coral); color: white; border-radius: 50px; padding: 10px; text-align: center; text-decoration: none; display: block; width: 100%; font-weight: 500; transition: 0.3s; }
+        .btn-baca:hover { background-color: var(--coral-hover); color: white; }
+
+        /* --- Footer Style & Mobile Centering --- */
+        .custom-footer { background-color: #212529; color: #fff; padding: 60px 0 20px 0; }
+        .footer-brand { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .footer-desc { font-size: 0.95rem; line-height: 1.6; color: #adb5bd; margin-bottom: 1.5rem; }
+        .footer-heading { font-size: 1.15rem; font-weight: 700; margin-bottom: 1.5rem; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: #adb5bd; text-decoration: none; font-size: 0.95rem; transition: 0.3s; }
+        .footer-links a:hover { color: var(--toasted-coral); }
+        .footer-contact-item { display: flex; align-items: flex-start; margin-bottom: 1rem; font-size: 0.95rem; color: #adb5bd; }
+        .footer-contact-item i { color: var(--light-teal); margin-right: 12px; margin-top: 4px; }
+        .social-icons a { color: #fff; font-size: 1.2rem; margin-right: 15px; transition: 0.3s; }
+        .social-icons a:hover { color: var(--toasted-coral); }
+        .footer-copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; margin-top: 40px; color: #adb5bd; font-size: 0.9rem; }
+
+        /* MOBILE OPTIMIZATION FOR FOOTER */
+        @media (max-width: 991.98px) {
+            .custom-footer { text-align: center; }
+            .footer-contact-item { justify-content: center; }
+            .social-icons { margin-bottom: 2rem; }
+            .social-icons a { margin: 0 10px; }
+            .footer-contact-item i { margin-right: 8px; }
+        }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top shadow-sm py-2">
+    <!-- Navbar dengan Logika Scroll-Up -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 nav-down">
         <div class="container">
             <a class="navbar-brand text-coral fw-bold" href="index.html" aria-label="Beranda VespaMatic">
                 Vespa<span class="text-teal">Matic</span> <br>
@@ -128,7 +200,7 @@
         </div>
     </nav>
 
-    <!-- KONTEN ARTIKEL UTAMA (pt-0 agar sangat dekat dengan navbar) -->
+    <!-- KONTEN ARTIKEL UTAMA -->
     <main class="container pt-0 pb-5">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -243,7 +315,7 @@
                     </div>
                 </div>
 
-                <!-- Profil Penulis (Foto Bulat Sempurna) -->
+                <!-- Profil Penulis -->
                 <div class="author-box mb-4">
                     <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" alt="Foto Profil Penulis Dimas Pratama" loading="lazy" width="80" height="80" class="author-img rounded-circle">
                     <div>
@@ -252,7 +324,7 @@
                     </div>
                 </div>
 
-                <!-- Share Link Social Media (Aktif Dinamis) -->
+                <!-- Share Link Social Media -->
                 <div class="mb-5 text-center text-lg-start border-top pt-4">
                     <h6 class="fw-bold mb-3">Bagikan Artikel Ini:</h6>
                     <a href="#" id="shareFB" target="_blank" rel="noopener noreferrer" class="share-btn share-fb" aria-label="Bagikan ke Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
@@ -308,126 +380,115 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white py-5 text-center text-md-start">
+    <footer class="custom-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h4 class="text-white fw-bold mb-3">Vespa<span class="text-teal">Matic</span></h4>
-                    <p class="text-white">Solusi berkendara penuh gaya untuk Anda. Dealer resmi dengan pelayanan prima.</p>
-                    <div class="d-flex justify-content-center justify-content-md-start mt-3">
-                        <a href="#" class="text-white fs-4 me-3" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#" class="text-white fs-4 me-3" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#" class="text-white fs-4" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <div class="footer-brand">Vespa<span class="text-teal">Matic</span></div>
+                    <p class="footer-desc">Solusi berkendara penuh gaya untuk Anda. Dealer resmi dengan pelayanan prima.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="text-white fw-bold mb-3">Tautan Cepat</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
-                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">Tentang Kami</a></li>
-                        <li class="mb-2"><a href="index.html#product" class="text-white text-decoration-none">Lini Produk</a></li>
-                        <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none">Blog</a></li>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-heading">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="produk.html">Produk</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="text-white fw-bold mb-3">Layanan Kami</h5>
-                    <ul class="list-unstyled text-white">
-                        <li class="mb-2"><i class="fas fa-motorcycle text-teal me-2" aria-hidden="true"></i> Penjualan Unit Baru</li>
-                        <li class="mb-2"><i class="fas fa-tools text-teal me-2" aria-hidden="true"></i> Servis Berkala</li>
-                        <li class="mb-2"><i class="fas fa-cogs text-teal me-2" aria-hidden="true"></i> Suku Cadang Asli</li>
+                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                    <h5 class="footer-heading">Layanan Kami</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-motorcycle text-teal me-2"></i> Penjualan Unit Baru</a></li>
+                        <li><i class="fas fa-tools text-teal me-2"></i> Servis Berkala</a></li>
+                        <li><i class="fas fa-cogs text-teal me-2"></i> Suku Cadang Asli</a></li>
+                        <li><i class="fas fa-hand-holding-usd text-teal me-2"></i> Konsultasi Kredit</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="text-white fw-bold mb-3">Kontak Info</h5>
-                    <ul class="list-unstyled text-white">
-                        <li class="mb-2"><i class="fas fa-map-marker-alt text-teal me-2" aria-hidden="true"></i> Jl. Raya Vespa No. 123, Malang</li>
-                        <li class="mb-2"><i class="fas fa-phone text-teal me-2" aria-hidden="true"></i> +62 812-3456-7890</li>
-                        <li class="mb-2"><i class="fas fa-envelope text-teal me-2" aria-hidden="true"></i> info@vespamatic.com</li>
-                    </ul>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Kontak Info</h5>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Jl. Raya Vespa No. 123, Malang</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+62 812-3456-7890</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@vespamatic.com</span>
+                    </div>
                 </div>
             </div>
-            <hr class="border-secondary mt-4 mb-3">
-            <div class="text-center text-white"><small>&copy; 2026 VespaMatic Dealer. All Rights Reserved.</small></div>
+
+            <!-- Copyright Bar -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="footer-copyright">
+                        <p>© 2026 VespaMatic Dealer. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
-    <!-- Tombol Floating -->
-    <a href="https://wa.me/6281234567890" target="_blank" class="float-btn float-wa" aria-label="Chat WhatsApp" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-    <button onclick="scrollToTop()" id="floatTopBtn" class="float-btn float-top" aria-label="Scroll ke Atas"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/6281234567890" target="_blank" class="float-btn float-wa" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <button onclick="scrollToTop()" id="floatTopBtn" class="float-btn float-top" aria-label="Scroll Top"><i class="fas fa-chevron-up"></i></button>
 
-    <!-- SCRIPT SOCIAL SHARE DINAMIS -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var currentUrl = encodeURIComponent(window.location.href);
-            var currentTitle = encodeURIComponent(document.title);
-            document.getElementById('shareFB').href = "https://www.facebook.com/sharer/sharer.php?u=" + currentUrl;
-            document.getElementById('shareTW').href = "https://twitter.com/intent/tweet?url=" + currentUrl + "&text=" + currentTitle;
-            document.getElementById('shareWA').href = "https://api.whatsapp.com/send?text=" + currentTitle + "%20" + currentUrl;
-        });
-    </script>
-
-    <!-- Bootstrap 5 JS Bundle dengan atribut defer -->
+    <!-- Scripts -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Logika Navbar Sticky Scroll-Up dan Float Button
         let topBtn = document.getElementById("floatTopBtn");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) topBtn.style.display = "flex";
-            else topBtn.style.display = "none";
-        };
-        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-    </script>
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
 
-    <!-- === AI OVERVIEW STRUCTURED DATA (JSON-LD) === -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Beda Vespa Primavera vs Sprint: Panduan Memilih Skuter Impian",
-      "description": "Sering bingung memilih antara Vespa Primavera yang klasik atau Vespa Sprint yang sporty? Temukan perbandingan detail desain, fitur, dan harga di sini agar tidak salah pilih.",
-      "image": "https://images.unsplash.com/photo-1621245089332-95f24f46bc0f?auto=format&fit=crop&w=1200&q=80",
-      "author": { "@type": "Person", "name": "Dimas Pratama" },
-      "publisher": { 
-        "@type": "Organization", 
-        "name": "VespaMatic Dealer",
-        "logo": { "@type": "ImageObject", "url": "https://www.vespamaticdealer.com/logo.png" }
-      },
-      "datePublished": "2026-05-18T10:00:00+07:00",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.vespamaticdealer.com/primavera_vs_sprint.html" }
-    }
-    </script>
-    
-    <!-- FAQ Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Apakah performa mesin Primavera dan Sprint berbeda?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Tidak. Keduanya sama-sama menggunakan mesin i-get 150cc, 3-katup, 4-tak injeksi. Tarikan gas, kecepatan maksimal, dan konsumsi bahan bakarnya sangat identik."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Mana yang posisi duduknya (jok) lebih tinggi?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Keduanya memiliki tinggi jok yang persis sama, yaitu sekitar 790 mm. Suspensi yang digunakan juga sama."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Apakah harga keduanya sama?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Umumnya, seri Sprint memiliki harga jual yang sedikit lebih tinggi (selisih sekitar 2-3 juta rupiah) dibandingkan seri Primavera karena adanya detail kosmetik sporty tambahan."
-          }
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Navbar Scroll-Up Logic
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scroll Ke Bawah -> Sembunyikan Navbar
+                navbar.classList.remove('nav-down');
+                navbar.classList.add('nav-up');
+            } else {
+                // Scroll Ke Atas -> Munculkan Navbar
+                navbar.classList.remove('nav-up');
+                navbar.classList.add('nav-down');
+            }
+            lastScrollTop = scrollTop;
+
+            // Tombol Back to Top Logic
+            if (scrollTop > 200) {
+                topBtn.style.display = "flex";
+            } else {
+                topBtn.style.display = "none";
+            }
+        });
+
+        // WhatsApp & Social Share Link Logic
+        document.addEventListener("DOMContentLoaded", function() {
+            var url = encodeURIComponent(window.location.href);
+            var title = encodeURIComponent(document.title);
+            
+            // Facebook
+            if(document.getElementById('shareFB')) document.getElementById('shareFB').href = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+            // Twitter
+            if(document.getElementById('shareTW')) document.getElementById('shareTW').href = "https://twitter.com/intent/tweet?url=" + url + "&text=" + title;
+            // WhatsApp
+            if(document.getElementById('shareWA')) document.getElementById('shareWA').href = "https://api.whatsapp.com/send?text=" + title + "%20" + url;
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-      ]
-    }
     </script>
 </body>
 </html>

@@ -65,6 +65,31 @@
             background-color: #fcfcfc;
         }
 
+        /* --- Navbar Sticky Scroll-Up System --- */
+        .navbar {
+            transition: transform 0.4s ease-in-out, background-color 0.3s;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+        .navbar.nav-up {
+            transform: translateY(-100%);
+        }
+        .navbar.nav-down {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- Proportional Spacing Desktop & Mobile --- */
+        body { padding-top: 80px; }
+        
+        @media (max-width: 768px) {
+            body { padding-top: 70px; }
+            h1 { font-size: 1.8rem !important; }
+            .article-content { font-size: 1rem; }
+        }
+
         /* --- Utilitas Warna Custom --- */
         .text-coral { color: var(--toasted-coral); }
         .text-teal { color: var(--light-teal); }
@@ -90,6 +115,11 @@
         .author-box { display: flex; align-items: center; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 3rem; }
         .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px; flex-shrink: 0; }
         
+        @media (max-width: 576px) {
+            .author-box { flex-direction: column; text-align: center; }
+            .author-img { margin-right: 0; margin-bottom: 15px; }
+        }
+
         .share-btn { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: white; margin-right: 10px; transition: 0.3s; text-decoration: none; font-size: 1.1rem;}
         .share-fb { background-color: #1877f2; } 
         .share-tw { background-color: #1da1f2; } 
@@ -102,12 +132,19 @@
         .float-wa:hover { background-color: #1ebe58; color: white; transform: scale(1.1); }
         .float-top { bottom: 95px; background-color: var(--light-teal); display: none; border: none; cursor: pointer; }
         .float-top:hover { background-color: #3e9e95; color: white; transform: scale(1.1); }
+
+        /* --- Footer Proportions Mobile --- */
+        @media (max-width: 991px) {
+            footer { text-align: center !important; }
+            footer .text-md-start { text-align: center !important; }
+            footer .d-flex { justify-content: center !important; }
+        }
     </style>
 </head>
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-2">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 nav-down">
         <div class="container">
             <a class="navbar-brand text-coral fw-bold" href="index.html" aria-label="Beranda VespaMatic">
                 Vespa<span class="text-teal">Matic</span> <br>
@@ -273,7 +310,6 @@
                 <div class="col-md-4">
                     <div class="card h-100 shadow-sm border-0 bg-white" style="border-radius:12px; overflow:hidden; transition: 0.3s;">
                         <img src="image/otomotif vespa.webp" class="card-img-top" alt="Servis Berkala Vespa" loading="lazy" style="height:200px; object-fit:cover;">
-                        <!-- REVISI: Penambahan d-flex flex-column dan tombol Baca Artikel di bawah -->
                         <div class="card-body p-4 d-flex flex-column">
                             <h6 class="fw-bold mb-2"><a href="servis_berkala_vespa.html" class="text-decoration-none text-dark">Panduan Servis Berkala Vespa Matic Resmi</a></h6>
                             <p class="text-muted small mb-4">Jangan sampai terlewat! Inilah jadwal ideal untuk mengganti oli dan mengecek CVT Vespa Anda.</p>
@@ -285,7 +321,6 @@
                 <div class="col-md-4">
                     <div class="card h-100 shadow-sm border-0 bg-white" style="border-radius:12px; overflow:hidden; transition: 0.3s;">
                         <img src="image/vespa modif.webp" class="card-img-top" alt="Modifikasi Vespa" loading="lazy" style="height:200px; object-fit:cover;">
-                        <!-- REVISI: Penambahan d-flex flex-column dan tombol Baca Artikel di bawah -->
                         <div class="card-body p-4 d-flex flex-column">
                             <h6 class="fw-bold mb-2"><a href="modifikasi_vespa.html" class="text-decoration-none text-dark">Modifikasi Ringan Vespa Untuk Pemula</a></h6>
                             <p class="text-muted small mb-4">Ingin tampilan motor Vespa kamu lebih personal? Mulailah dengan modifikasi ringan dan elegan.</p>
@@ -297,7 +332,6 @@
                 <div class="col-md-4">
                     <div class="card h-100 shadow-sm border-0 bg-white" style="border-radius:12px; overflow:hidden; transition: 0.3s;">
                         <img src="image/sunmori vespa (1).webp" class="card-img-top" alt="Rute Touring Vespa" loading="lazy" style="height:200px; object-fit:cover;">
-                        <!-- REVISI: Penambahan d-flex flex-column dan tombol Baca Artikel di bawah -->
                         <div class="card-body p-4 d-flex flex-column">
                             <h6 class="fw-bold mb-2"><a href="rute_touring_vespa.html" class="text-decoration-none text-dark">7 Rekomendasi Rute Touring Santai Akhir Pekan</a></h6>
                             <p class="text-muted small mb-4">Bosan kemacetan kota? Nikmati rute touring asyik ini bersama komunitas Vespa kesayanganmu.</p>
@@ -328,7 +362,7 @@
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
                         <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">Tentang Kami</a></li>
-                        <li class="mb-2"><a href="index.html#product" class="text-white text-decoration-none">Lini Produk</a></li>
+                        <li class="mb-2"><a href="produk.html" class="text-white text-decoration-none">Produk</a></li>
                         <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none">Blog</a></li>
                     </ul>
                 </div>
@@ -338,6 +372,7 @@
                         <li class="mb-2"><i class="fas fa-motorcycle text-teal me-2" aria-hidden="true"></i> Penjualan Unit Baru</li>
                         <li class="mb-2"><i class="fas fa-tools text-teal me-2" aria-hidden="true"></i> Servis Berkala</li>
                         <li class="mb-2"><i class="fas fa-cogs text-teal me-2" aria-hidden="true"></i> Suku Cadang Asli</li>
+                        <li class="mb-2"><i class="fas fa-file-invoice-dollar text-teal me-2" aria-hidden="true"></i> Konsultasi Kredit</li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
@@ -346,39 +381,25 @@
                         <li class="mb-2"><i class="fas fa-map-marker-alt text-teal me-2" aria-hidden="true"></i> Jl. Raya Vespa No. 123, Malang</li>
                         <li class="mb-2"><i class="fas fa-phone text-teal me-2" aria-hidden="true"></i> +62 812-3456-7890</li>
                         <li class="mb-2"><i class="fas fa-envelope text-teal me-2" aria-hidden="true"></i> info@vespamatic.com</li>
+                        <li class="mb-2"><i class="fas fa-clock text-teal me-2" aria-hidden="true"></i> 08:00 - 17:00</li>
                     </ul>
                 </div>
             </div>
             <hr class="border-secondary mt-4 mb-3">
-            <div class="text-center text-white"><small>&copy; 2026 VespaMatic Dealer. All Rights Reserved.</small></div>
+            <div class="text-center text-white">
+                <small>&copy; 2026 VespaMatic Dealer. All Rights Reserved.</small>
+            </div>
         </div>
     </footer>
 
     <!-- Tombol Floating -->
-    <a href="https://wa.me/6281234567890" target="_blank" class="float-btn float-wa" aria-label="Chat WhatsApp" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
-    <button onclick="scrollToTop()" id="floatTopBtn" class="float-btn float-top" aria-label="Scroll ke Atas"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
+    <a href="https://wa.me/6281234567890" target="_blank" class="float-btn float-wa" title="Hubungi via WhatsApp" rel="noopener noreferrer" aria-label="Chat via WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
 
-    <!-- SCRIPT SOCIAL SHARE DINAMIS -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var currentUrl = encodeURIComponent(window.location.href);
-            var currentTitle = encodeURIComponent(document.title);
-            document.getElementById('shareFB').href = "https://www.facebook.com/sharer/sharer.php?u=" + currentUrl;
-            document.getElementById('shareTW').href = "https://twitter.com/intent/tweet?url=" + currentUrl + "&text=" + currentTitle;
-            document.getElementById('shareWA').href = "https://api.whatsapp.com/send?text=" + currentTitle + "%20" + currentUrl;
-        });
-    </script>
-
-    <!-- Bootstrap 5 JS Bundle dengan atribut defer -->
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        let topBtn = document.getElementById("floatTopBtn");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) topBtn.style.display = "flex";
-            else topBtn.style.display = "none";
-        };
-        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
-    </script>
+    <button onclick="scrollToTop()" id="floatTopBtn" class="float-btn float-top" title="Kembali ke atas" aria-label="Gulir ke atas halaman">
+        <i class="fas fa-chevron-up" aria-hidden="true"></i>
+    </button>
 
     <!-- === AI OVERVIEW STRUCTURED DATA (JSON-LD) === -->
     <script type="application/ld+json">
@@ -431,6 +452,51 @@
         }
       ]
     }
+    </script>
+
+    <!-- SCRIPT SOCIAL SHARE DINAMIS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var currentUrl = encodeURIComponent(window.location.href);
+            var currentTitle = encodeURIComponent(document.title);
+            document.getElementById('shareFB').href = "https://www.facebook.com/sharer/sharer.php?u=" + currentUrl;
+            document.getElementById('shareTW').href = "https://twitter.com/intent/tweet?url=" + currentUrl + "&text=" + currentTitle;
+            document.getElementById('shareWA').href = "https://api.whatsapp.com/send?text=" + currentTitle + "%20" + currentUrl;
+        });
+    </script>
+
+    <!-- Bootstrap 5 JS Bundle dengan atribut defer -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Logika Navbar Sticky Scroll-Up dan Float Button
+        let topBtn = document.getElementById("floatTopBtn");
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Logika Scroll-Up Sticky Navbar
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scroll Ke Bawah - Sembunyikan Navbar
+                navbar.classList.remove('nav-down');
+                navbar.classList.add('nav-up');
+            } else {
+                // Scroll Ke Atas - Tampilkan Navbar
+                navbar.classList.remove('nav-up');
+                navbar.classList.add('nav-down');
+            }
+            lastScrollTop = scrollTop;
+
+            // Logika Tampilkan Tombol Kembali ke Atas
+            if (scrollTop > 200) {
+                topBtn.style.display = "flex";
+            } else {
+                topBtn.style.display = "none";
+            }
+        });
+
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
     </script>
 </body>
 </html>

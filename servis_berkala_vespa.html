@@ -54,8 +54,23 @@
             background-color: #fcfcfc;
         }
 
-        /* Navbar No Gap */
-      .navbar .nav-link { font-weight: 500; color: #333; transition: 0.3s; }
+        /* Navbar Sticky Scroll-Up */
+        .navbar {
+            transition: transform 0.4s ease-in-out, background-color 0.3s;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+        .navbar.nav-up {
+            transform: translateY(-100%);
+        }
+        .navbar.nav-down {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar .nav-link { font-weight: 500; color: #333; transition: 0.3s; }
         .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--toasted-coral); }
 
         .text-coral { color: var(--toasted-coral); }
@@ -63,9 +78,17 @@
         .btn-coral { background-color: var(--toasted-coral); color: white; border: none; border-radius: 25px; padding: 10px 25px; transition: 0.3s;}
         .btn-coral:hover { background-color: var(--coral-hover); color: white; }
         
+        /* Proportional Spacing */
+        body { padding-top: 80px; }
         .article-content { font-size: 1.1rem; line-height: 1.8; color: #4a4a4a; }
         .article-content h2 { font-weight: 700; color: #2d2d2d; margin-top: 2rem; margin-bottom: 1rem; }
         
+        @media (max-width: 768px) {
+            body { padding-top: 70px; }
+            h1 { font-size: 1.8rem !important; }
+            .article-content { font-size: 1rem; }
+        }
+
         .toc-box { background-color: #f8f9fa; border-left: 4px solid var(--toasted-coral); border-radius: 8px; padding: 20px; }
         .toc-btn { text-decoration: none; color: #333; font-weight: bold; width: 100%; text-align: left; background: none; border: none; padding: 0; display: flex; justify-content: space-between; align-items: center; }
         
@@ -74,8 +97,13 @@
         figcaption { font-size: 0.85rem; color: #6c757d; text-align: center; margin-top: 8px; font-style: italic; }
         
         .author-box { display: flex; align-items: center; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 3rem; }
-        .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px; }
+        .author-img { width: 80px; height: 80px; aspect-ratio: 1/1; border-radius: 50%; object-fit: cover; margin-right: 20px; flex-shrink: 0; }
         
+        @media (max-width: 576px) {
+            .author-box { flex-direction: column; text-align: center; }
+            .author-img { margin-right: 0; margin-bottom: 15px; }
+        }
+
         .share-btn { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: white; margin-right: 10px; transition: 0.3s; text-decoration: none; }
         .share-fb { background-color: #1877f2; } 
         .share-tw { background-color: #1da1f2; } 
@@ -88,7 +116,7 @@
         .float-top { bottom: 95px; background-color: var(--light-teal); border: none; cursor: pointer; display: none; }
         .float-top:hover { transform: scale(1.1); color: white;}
 
-        /* Related Articles Card (image_75975a.png style) */
+        /* Related Articles Card */
         .related-card {
             border: none;
             border-radius: 12px;
@@ -99,13 +127,13 @@
         }
         .related-card:hover { transform: translateY(-5px); }
         .related-card img { border-radius: 12px 12px 0 0; height: 200px; object-fit: cover; }
-        .related-card .card-body { padding: 2rem; }
+        .related-card .card-body { padding: 1.5rem; }
         .related-card .card-title { font-size: 1.1rem; font-weight: 700; line-height: 1.4; margin-bottom: 0.5rem; }
         .related-card .card-text { font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; }
         .btn-baca { background-color: var(--toasted-coral); color: white; border-radius: 50px; padding: 10px; text-align: center; text-decoration: none; display: block; width: 100%; font-weight: 500; transition: 0.3s; }
         .btn-baca:hover { background-color: var(--coral-hover); color: white; }
 
-        /* Footer Style (image_7580f0.png style) */
+        /* Footer Style & Mobile Centering */
         .custom-footer { background-color: #212529; color: #fff; padding: 60px 0 20px 0; }
         .footer-brand { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
         .footer-desc { font-size: 0.95rem; line-height: 1.6; color: #adb5bd; margin-bottom: 1.5rem; }
@@ -118,17 +146,24 @@
         .footer-contact-item i { color: var(--light-teal); margin-right: 12px; margin-top: 4px; }
         .social-icons a { color: #fff; font-size: 1.2rem; margin-right: 15px; transition: 0.3s; }
         .social-icons a:hover { color: var(--toasted-coral); }
+
+        @media (max-width: 991px) {
+            .custom-footer { text-align: center; }
+            .footer-contact-item { justify-content: center; text-align: left; }
+            .social-icons a { margin: 0 8px; }
+            .footer-contact-item i { margin-right: 10px; }
+        }
         
         .footer-copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; margin-top: 40px; color: #adb5bd; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+    <!-- Navbar Sticky Scroll -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 nav-down">
         <div class="container">
             <a class="navbar-brand text-coral fw-bold" href="index.html">
-                Vespa<span class="text-teal">Matic</span> <br>
+                Vespa<span class="text-teal">Matic</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -163,15 +198,14 @@
                 <h1 class="fw-bold mb-3" style="font-size: 2.5rem; color: #222;">Panduan Servis Berkala Vespa Matic: Jadwal & Tips Perawatan</h1>
                 <p class="text-muted mb-4"><i class="fas fa-calendar-alt me-2"></i> 06 Mei 2026 &nbsp; | &nbsp; <i class="fas fa-tools me-2"></i> Tips & Perawatan</p>
 
-                <!-- Gambar 1 (Atas) -->
+                <!-- Gambar 1 -->
                 <figure class="mb-4">
                     <img src="image/otomotif vespa.webp" class="img-fluid rounded-3 shadow-sm w-100" alt="Mekanik melakukan servis berkala Vespa">
                     <figcaption>Proses pengecekan menyeluruh oleh mekanik berpengalaman di bengkel resmi VespaMatic.</figcaption>
                 </figure>
 
                 <div class="article-content">
-                    <!-- Ringkasan -->
-                    <p class="lead fw-normal">Vespa Matic Anda membutuhkan perawatan yang disiplin untuk menjaga mesin i-get tetap halus dan bertenaga. Melakukan servis berkala bukan hanya soal ganti oli, tapi juga memastikan keselamatan komponen penting lainnya. Pelajari jadwal rutin dan apa saja yang wajib dicek di sini.</p>
+                    <p class="lead fw-normal">Vespa Matic Anda membutuhkan perawatan yang disiplin untuk menjaga mesin i-get tetap halus dan bertenaga. Melakukan servis berkala bukan hanya soal ganti oli, tapi juga memastikan keselamatan komponen penting lainnya.</p>
 
                     <!-- Table of Content -->
                     <div class="toc-box mb-5">
@@ -189,7 +223,7 @@
                     </div>
 
                     <h2 id="jadwal-servis">1. Jadwal Rutin Servis Berkala</h2>
-                    <p>Servis pertama biasanya dilakukan pada jarak tempuh 1.000 KM. Setelah itu, untuk penggunaan harian yang cukup padat, sangat disarankan untuk melakukan servis rutin setiap <b>3.000 KM atau 3 bulan sekali</b>. Hal ini bertujuan untuk membuang endapan kotoran pada oli mesin dan menjaga suhu komponen transmisi tetap stabil.</p>
+                    <p>Servis pertama biasanya dilakukan pada jarak tempuh 1.000 KM. Setelah itu, sangat disarankan untuk melakukan servis rutin setiap <b>3.000 KM atau 3 bulan sekali</b> untuk menjaga suhu komponen transmisi tetap stabil.</p>
 
                     <!-- Baca Juga -->
                     <div class="baca-juga shadow-sm">
@@ -198,31 +232,31 @@
                     </div>
 
                     <h2 id="komponen-wajib">2. Komponen yang Wajib Dicek</h2>
-                    <p>Selain oli mesin dan oli gardan, sektor <b>CVT (Continuously Variable Transmission)</b> wajib dibersihkan dari debu kampas ganda agar tarikan tidak gredek. Filter udara juga perlu diperiksa secara berkala; jika sudah terlalu hitam, segera ganti agar konsumsi bahan bakar tetap irit.</p>
+                    <p>Sektor <b>CVT (Continuously Variable Transmission)</b> wajib dibersihkan dari debu kampas ganda agar tarikan tidak gredek. Filter udara juga perlu diperiksa secara berkala.</p>
 
-                    <!-- Gambar 2 (Tengah) -->
+                    <!-- Gambar 2 -->
                     <figure class="my-5">
                         <img src="image/mesin.webp" class="img-fluid rounded-3 shadow-sm w-100" alt="Detail komponen CVT Vespa" loading="lazy">
-                        <figcaption>Kondisi komponen CVT yang bersih menjamin akselerasi yang responsif dan bebas getaran.</figcaption>
+                        <figcaption>Kondisi komponen CVT yang bersih menjamin akselerasi yang responsif.</figcaption>
                     </figure>
 
                     <h2 id="pentingnya-bengkel-resmi">3. Keuntungan Servis di Bengkel Resmi</h2>
-                    <p>Membawa Vespa ke bengkel resmi memastikan Anda mendapatkan suku cadang orisinal (Genuine Parts) dan diagnosa komputer menggunakan alat PADS. Selain itu, riwayat servis yang tercatat dengan baik akan menjaga harga jual kembali Vespa Anda tetap tinggi di pasaran.</p>
+                    <p>Membawa Vespa ke bengkel resmi memastikan Anda mendapatkan suku cadang orisinal (Genuine Parts) dan diagnosa komputer menggunakan alat PADS.</p>
 
                     <hr class="my-5">
 
                     <!-- FAQ -->
-                    <h3 class="fw-bold mb-4">FAQ Servis Vespa</h3>
-                    <div class="accordion mb-5 shadow-sm" id="faqServis">
+                    <h3 class="fw-bold mb-4">FAQ (Tanya Jawab Servis Vespa)</h3>
+                    <div class="accordion mb-5 shadow-sm" id="faqServisVespa">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
-                                    Berapa liter kapasitas oli mesin Vespa Sprint/Primavera?
+                                 <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqServis1">
+                                Kapan jadwal ideal untuk melakukan servis berkala?
                                 </button>
-                            </h2>
-                            <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqServis">
+                             </h2>
+                            <div id="faqServis1" class="accordion-collapse collapse show" data-bs-parent="#faqServisVespa">
                                 <div class="accordion-body">
-                                    Kapasitas oli mesin Vespa i-get 150cc adalah sekitar 1.2 liter hingga 1.3 liter (jika ganti filter oli). Pastikan menggunakan oli dengan spesifikasi yang direkomendasikan pabrikan.
+                                     Setiap 3.000 KM atau 3 bulan sekali. Servis besar biasanya dilakukan setiap kelipatan 10.000 KM.
                                 </div>
                             </div>
                         </div>
@@ -233,7 +267,7 @@
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Penulis" class="author-img">
                         <div>
                             <h5 class="fw-bold mb-1">Ditulis oleh: Dimas Pratama</h5>
-                            <p class="text-muted small mb-0">Konsultan teknis di VespaMatic. Pengalaman lebih dari 5 tahun menangani perawatan dan restorasi skuter Italia modern.</p>
+                            <p class="text-muted small mb-0">Konsultan teknis di VespaMatic. Pengalaman lebih dari 5 tahun menangani skuter Italia modern.</p>
                         </div>
                     </div>
 
@@ -249,7 +283,7 @@
         </div>
     </main>
 
-    <!-- Artikel Terkait (Sesuai Referensi) -->
+    <!-- Artikel Terkait -->
     <section class="py-5 bg-light border-top">
         <div class="container">
             <h2 class="text-center fw-bold mb-5">Artikel <span class="text-coral">Terkait</span></h2>
@@ -258,8 +292,8 @@
                     <div class="related-card">
                         <img src="image/vespa tua.webp" class="card-img-top" alt="Rawat Cat Vespa">
                         <div class="card-body">
-                            <h5 class="card-title">Cara Merawat Cat Vespa yang Kusam dan Pudar</h5>
-                            <p class="card-text">Kembalikan kilau cat Vespa kesayangan Anda dengan langkah poles dan waxing yang tepat.</p>
+                            <h5 class="card-title">Cara Merawat Cat Vespa yang Kusam</h5>
+                            <p class="card-text">Kembalikan kilau cat Vespa dengan langkah poles dan waxing yang tepat.</p>
                             <a href="cara_merawatcat_vespa.html" class="btn-baca">Baca Artikel</a>
                         </div>
                     </div>
@@ -268,8 +302,8 @@
                     <div class="related-card">
                         <img src="image/helm retro.webp" class="card-img-top" alt="Helm Vespa">
                         <div class="card-body">
-                            <h5 class="card-title">Panduan Memilih Helm Vespa yang Aman dan Stylish</h5>
-                            <p class="card-text">Lengkapi gaya berkendara Vespa Anda dengan pilihan helm yang tepat dan standar keamanan tinggi.</p>
+                            <h5 class="card-title">Panduan Memilih Helm Vespa Stylish</h5>
+                            <p class="card-text">Lengkapi gaya berkendara dengan helm yang tepat dan standar keamanan tinggi.</p>
                             <a href="helm_vespa.html" class="btn-baca">Baca Artikel</a>
                         </div>
                     </div>
@@ -278,8 +312,8 @@
                     <div class="related-card">
                         <img src="image/vespa modif.webp" class="card-img-top" alt="Modifikasi Vespa">
                         <div class="card-body">
-                            <h5 class="card-title">Panduan Modifikasi Vespa Matic: Performa & Estetika</h5>
-                            <p class="card-text">Ulasan mendalam modifikasi Vespa Matic ala komunitas modern untuk penggunaan harian.</p>
+                            <h5 class="card-title">Panduan Modifikasi Vespa Matic</h5>
+                            <p class="card-text">Ulasan mendalam modifikasi Vespa Matic ala komunitas modern.</p>
                             <a href="modifikasi_vespa.html" class="btn-baca">Baca Artikel</a>
                         </div>
                     </div>
@@ -288,7 +322,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Revised -->
     <footer class="custom-footer">
         <div class="container">
             <div class="row">
@@ -306,16 +340,17 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Beranda</a></li>
                         <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="index.html#product">Lini Produk</a></li>
+                        <li><a href="produk.html">Produk</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                     <h5 class="footer-heading">Layanan Kami</h5>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-motorcycle text-teal me-2"></i> Penjualan Unit Baru</a></li>
-                        <li><a href="#"><i class="fas fa-tools text-teal me-2"></i> Servis Berkala</a></li>
-                        <li><a href="#"><i class="fas fa-cogs text-teal me-2"></i> Suku Cadang Asli</a></li>
+                        <li><i class="fas fa-motorcycle text-teal me-2"></i> Penjualan Baru</a></li>
+                        <li><i class="fas fa-tools text-teal me-2"></i> Servis Berkala</a></li>
+                        <li><i class="fas fa-cogs text-teal me-2"></i> Suku Cadang</a></li>
+                        <li><i class="fas fa-file-invoice-dollar text-teal me-2"></i> Konsultasi Kredit</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -328,14 +363,9 @@
                         <i class="fas fa-phone-alt"></i>
                         <span>+62 812-3456-7890</span>
                     </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@vespamatic.com</span>
-                    </div>
                 </div>
             </div>
 
-            <!-- Copyright Bar Sesuai Gambar -->
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="footer-copyright">
@@ -353,6 +383,26 @@
     <!-- Scripts -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Navbar Sticky Scroll-Up Logic
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scroll Down
+                navbar.classList.remove('nav-down');
+                navbar.classList.add('nav-up');
+            } else {
+                // Scroll Up
+                navbar.classList.remove('nav-up');
+                navbar.classList.add('nav-down');
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Share Logic
         document.addEventListener("DOMContentLoaded", function() {
             var url = encodeURIComponent(window.location.href);
             var title = encodeURIComponent(document.title);
@@ -361,6 +411,7 @@
             document.getElementById('shareWA').href = "https://api.whatsapp.com/send?text=" + title + "%20" + url;
         });
 
+        // Scroll Top Logic
         let topBtn = document.getElementById("floatTopBtn");
         window.onscroll = function() {
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) topBtn.style.display = "flex";

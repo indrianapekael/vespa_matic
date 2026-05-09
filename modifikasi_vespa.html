@@ -47,12 +47,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* --- Variabel Warna --- */
         :root {
             --toasted-coral: #E07A5F;
             --light-teal: #4DB6AC;
             --coral-hover: #c9684f;
         }
 
+        /* --- Fix Anti Goyang Kanan Kiri & Layout --- */
         html, body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
@@ -61,15 +63,40 @@
             background-color: #fcfcfc;
         }
 
-        /* Navbar Sticky & No Gap */
+        /* --- Navbar Sticky Scroll-Up System --- */
+        .navbar {
+            transition: transform 0.4s ease-in-out, background-color 0.3s;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+        .navbar.nav-up {
+            transform: translateY(-100%);
+        }
+        .navbar.nav-down {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
         .navbar .nav-link { font-weight: 500; color: #333; transition: 0.3s; }
         .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--toasted-coral); }
 
+        /* --- Proportional Spacing Body --- */
+        body { padding-top: 80px; }
+        @media (max-width: 768px) {
+            body { padding-top: 70px; }
+            h1 { font-size: 1.8rem !important; }
+            .article-content { font-size: 1rem; }
+        }
+
+        /* --- Utilitas Warna Custom --- */
         .text-coral { color: var(--toasted-coral); }
         .text-teal { color: var(--light-teal); }
         .btn-coral { background-color: var(--toasted-coral); color: white; border: none; border-radius: 25px; padding: 10px 25px; transition: 0.3s;}
         .btn-coral:hover { background-color: var(--coral-hover); color: white; }
         
+        /* --- Article Layout --- */
         .article-content { font-size: 1.1rem; line-height: 1.8; color: #4a4a4a; }
         .article-content h2 { font-weight: 700; color: #2d2d2d; margin-top: 2rem; margin-bottom: 1rem; }
         
@@ -80,22 +107,28 @@
         
         figcaption { font-size: 0.85rem; color: #6c757d; text-align: center; margin-top: 8px; font-style: italic; }
         
+        /* --- Author Box Mobile Proportions --- */
         .author-box { display: flex; align-items: center; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 3rem; }
-        .author-img { width: 80px; height: 80px; aspect-ratio: 1/1; border-radius: 50%; object-fit: cover; margin-right: 20px; flex-shrink: 0; }    
-            
+        .author-img { width: 80px; height: 80px; aspect-ratio: 1/1; border-radius: 50%; object-fit: cover; margin-right: 20px; flex-shrink: 0; }  
+        
+        @media (max-width: 576px) {
+            .author-box { flex-direction: column; text-align: center; }
+            .author-img { margin-right: 0; margin-bottom: 15px; }
+        }
+
         .share-btn { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: white; margin-right: 10px; transition: 0.3s; text-decoration: none; }
         .share-fb { background-color: #1877f2; } 
         .share-tw { background-color: #1da1f2; } 
         .share-wa { background-color: #25d366; }
 
-        /* Floating Buttons */
+        /* --- Floating Buttons --- */
         .float-btn { position: fixed; right: 25px; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; transition: 0.3s; }
         .float-wa { bottom: 25px; background-color: #25D366; }
         .float-wa:hover { background-color: #1ebe58; transform: scale(1.1); color: white;}
         .float-top { bottom: 95px; background-color: var(--light-teal); border: none; cursor: pointer; display: none; }
         .float-top:hover { transform: scale(1.1); color: white;}
 
-        /* Related Articles Card */
+        /* --- Related Articles Card --- */
         .related-card {
             border: none;
             border-radius: 12px;
@@ -112,7 +145,7 @@
         .btn-baca { background-color: var(--toasted-coral); color: white; border-radius: 50px; padding: 10px; text-align: center; text-decoration: none; display: block; width: 100%; font-weight: 500; transition: 0.3s; }
         .btn-baca:hover { background-color: var(--coral-hover); color: white; }
 
-        /* Footer Style */
+        /* --- Footer Style & Mobile Centering --- */
         .custom-footer { background-color: #212529; color: #fff; padding: 60px 0 20px 0; }
         .footer-brand { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
         .footer-desc { font-size: 0.95rem; line-height: 1.6; color: #adb5bd; margin-bottom: 1.5rem; }
@@ -125,9 +158,9 @@
         .footer-contact-item i { color: var(--light-teal); margin-right: 12px; margin-top: 4px; }
         .social-icons a { color: #fff; font-size: 1.2rem; margin-right: 15px; transition: 0.3s; }
         .social-icons a:hover { color: var(--toasted-coral); }
-        .footer-copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; margin-top: 40px; color: #adb5bd; font-size: 0.9rem; }
+        
+        .footer-copyright { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; margin-top: 40px; color: #adb5bd; font-size: 0.9rem; text-align: center; }
 
-        /* MOBILE OPTIMIZATION FOR FOOTER */
         @media (max-width: 991.98px) {
             .custom-footer { text-align: center; }
             .footer-contact-item { justify-content: center; }
@@ -137,8 +170,8 @@
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+    <!-- Navbar dengan Logika Scroll-Up -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 nav-down">
         <div class="container">
             <a class="navbar-brand text-coral fw-bold" href="index.html">
                 Vespa<span class="text-teal">Matic</span> <br>
@@ -315,7 +348,7 @@
                     <div class="related-card">
                         <img src="image/outfit vespa.webp" class="card-img-top" alt="Outfit Riding Vespa">
                         <div class="card-body">
-                            <h5 class="card-title">Inspirasi Outfit Riding Vespa yang Stylish & Aman</h5>
+                            <h5 class="card-title">Inspirasi Outfit Riding Vespa yang Stylish</h5>
                             <p class="card-text">Padu padan jaket, sarung tangan kulit, dan boots untuk tampil maksimal saat sunday morning ride.</p>
                             <a href="outfit_riding_vespa.html" class="btn-baca">Baca Artikel</a>
                         </div>
@@ -325,7 +358,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Mobile Rata Tengah -->
     <footer class="custom-footer">
         <div class="container">
             <div class="row">
@@ -343,7 +376,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Beranda</a></li>
                         <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="index.html#product">Lini Produk</a></li>
+                        <li><a href="produk.html">Produk</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
@@ -353,6 +386,7 @@
                         <li><a href="#"><i class="fas fa-motorcycle text-teal me-2"></i> Penjualan Unit Baru</a></li>
                         <li><a href="#"><i class="fas fa-tools text-teal me-2"></i> Servis Berkala</a></li>
                         <li><a href="#"><i class="fas fa-cogs text-teal me-2"></i> Suku Cadang Asli</a></li>
+                        <li><a href="#"><i class="fas fa-headset text-teal me-2"></i> Konsultasi Kredit</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -390,6 +424,32 @@
     <!-- Scripts -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Logika Navbar Sticky Scroll Up & Share Link
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+        let topBtn = document.getElementById("floatTopBtn");
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Scroll Down = Sembunyikan Navbar, Scroll Up = Tampilkan Navbar
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.classList.remove('nav-down');
+                navbar.classList.add('nav-up');
+            } else {
+                navbar.classList.remove('nav-up');
+                navbar.classList.add('nav-down');
+            }
+            lastScrollTop = scrollTop;
+
+            // Tombol Back to Top Logic
+            if (scrollTop > 200) {
+                topBtn.style.display = "flex";
+            } else {
+                topBtn.style.display = "none";
+            }
+        });
+
         // WhatsApp & Social Share Link Logic
         document.addEventListener("DOMContentLoaded", function() {
             var url = encodeURIComponent(window.location.href);
@@ -403,19 +463,7 @@
             if(document.getElementById('shareWA')) document.getElementById('shareWA').href = "https://api.whatsapp.com/send?text=" + title + "%20" + url;
         });
 
-        // Scroll to Top Logic
-        let topBtn = document.getElementById("floatTopBtn");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                topBtn.style.display = "flex";
-            } else {
-                topBtn.style.display = "none";
-            }
-        };
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
     </script>
 
     <!-- Schema Markup AI Overview -->

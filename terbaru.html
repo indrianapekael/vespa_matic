@@ -58,6 +58,23 @@
             background-color: #fcfcfc;
         }
 
+        /* --- Navbar Sticky Scroll-Up System --- */
+        .navbar {
+            transition: transform 0.4s ease-in-out, background-color 0.3s;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+            background-color: white;
+        }
+        .navbar.nav-up {
+            transform: translateY(-100%);
+        }
+        .navbar.nav-down {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
         /* --- Utilitas Warna Custom --- */
         .text-coral { color: var(--toasted-coral); }
         .text-teal { color: var(--light-teal); }
@@ -84,21 +101,22 @@
             min-height: 50vh; 
             display: flex;
             align-items: center;
-            padding: 60px 0;
+            /* Padding atas ditambah kompensasi tinggi navbar, agar rapat dan tidak tertutup */
+            padding: 120px 0 60px 0; 
             margin-top: 0; 
         }
         .hero-title { font-size: 3rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         
         @media (max-width: 768px) {
             .hero-title { font-size: 2rem; }
-            .terbaru-hero { text-align: center; min-height: 40vh; }
+            .terbaru-hero { text-align: center; min-height: 40vh; padding: 100px 0 50px 0; }
         }
 
         /* --- Promo Card --- */
         .promo-card {
             border: none;
             border-radius: 12px;
-            overflow: hidden;
+            overflow: hidden; /* Mengamankan border-radius untuk gambar */
             box-shadow: 0 4px 15px rgba(0,0,0,0.06);
             transition: 0.3s;
         }
@@ -115,6 +133,28 @@
             font-size: 0.85rem;
             z-index: 2;
         }
+
+        /* Styling spesifik untuk Container Gambar Promo agar proporsional di Mobile & Desktop */
+        .promo-img-wrapper {
+            height: 100%;
+            min-height: 100%;
+        }
+        .promo-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        @media (max-width: 767.98px) {
+            .promo-img-wrapper {
+                height: 220px; /* Tinggi proporsional khusus di layar HP */
+                min-height: 220px;
+            }
+            .promo-card .card-body {
+                padding: 1.5rem !important;
+            }
+        }
         
         /* --- Product Card (New Arrival) --- */
         .product-card {
@@ -127,28 +167,24 @@
         }
         .product-card:hover { transform: translateY(-10px); box-shadow: 0 15px 25px rgba(0,0,0,0.1); }
         
-        /* REVISI DI SINI: Area gambar dibuat full setengah card */
         .card-img-wrapper {
             background-color: rgba(77, 182, 172, 0.1);
-            /* Padding dihapus agar gambar full ke pinggir */
             padding: 0; 
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            /* Tinggi disesuaikan agar proporsional menjadi setengah card (sekitar 300px-350px) */
             height: 320px; 
             border-bottom: 1px solid #f1f1f1;
             position: relative;
-            overflow: hidden; /* Memastikan gambar tidak keluar radius card */
+            overflow: hidden; 
         }
         
-        /* REVISI DI SINI: Gambar dibuat cover agar memenuhi container */
         .card-img-wrapper img { 
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Gambar memenuhi area, terpotong sedikit jika beda rasio */
-            object-position: center; /* Fokus di tengah gambar */
+            object-fit: cover; 
+            object-position: center; 
             transition: transform 0.3s; 
         }
         .product-card:hover .card-img-wrapper img { transform: scale(1.05); }
@@ -163,10 +199,10 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-2">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white nav-down py-2">
         <div class="container">
             <a class="navbar-brand text-coral fw-bold" href="index.html" aria-label="Beranda VespaMatic">
-                Vespa<span class="text-teal">Matic</span> <br>
+                Vespa<span class="text-teal">Matic</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -208,15 +244,16 @@
                 <div class="col-lg-6">
                     <div class="card promo-card bg-light h-100">
                         <div class="row g-0 align-items-center h-100">
-                            <div class="col-md-5 position-relative h-100">
+                            <div class="col-md-5 position-relative promo-img-wrapper">
                                 <span class="promo-badge">HOT PROMO</span>
-                                <img src="image/diskon.webp" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Promo DP Vespa" loading="lazy">
+                                <img src="image/diskon.webp" class="img-fluid" alt="Promo DP Vespa" loading="lazy">
                             </div>
                             <div class="col-md-7">
                                 <div class="card-body p-4">
                                     <h4 class="card-title fw-bold text-dark">DP Ringan Sprint S 150</h4>
                                     <p class="card-text text-muted mb-3">Bawa pulang Vespa Sprint impianmu dengan DP mulai dari <strong>Rp 4.500.000</strong>. Bonus Helm Eksklusif & Free Servis 2x.</p>
                                     <p class="text-teal fw-bold mb-3"><i class="fas fa-clock me-1"></i> Berlaku hingga 31 Mei 2026</p>
+                                    <a href="diskon.html" class="btn btn-outline-secondary w-100 rounded-pill mb-2">Baca Selengkapnya</a>
                                     <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-coral w-100 rounded-pill">Klaim Promo <i class="fab fa-whatsapp ms-1"></i></a>
                                 </div>
                             </div>
@@ -227,15 +264,16 @@
                 <div class="col-lg-6">
                     <div class="card promo-card bg-light h-100">
                         <div class="row g-0 align-items-center h-100">
-                            <div class="col-md-5 position-relative h-100">
+                            <div class="col-md-5 position-relative promo-img-wrapper">
                                 <span class="promo-badge" style="background-color: var(--light-teal);">CASHBACK</span>
-                                <img src="image/cashback.webp" class="img-fluid rounded-start h-100" style="object-fit: cover;" alt="Promo Cashback Vespa" loading="lazy">
+                                <img src="image/cashback.webp" class="img-fluid" alt="Promo Cashback Vespa" loading="lazy">
                             </div>
                             <div class="col-md-7">
                                 <div class="card-body p-4">
                                     <h4 class="card-title fw-bold text-dark">Cashback Jutaan Rupiah</h4>
                                     <p class="card-text text-muted mb-3">Khusus pembelian tunai atau kredit tenor 3 tahun untuk seri <strong>Vespa GTS 150</strong>. Dapatkan potongan langsung dan gratis Flyscreen.</p>
                                     <p class="text-teal fw-bold mb-3"><i class="fas fa-clock me-1"></i> Stok Sangat Terbatas</p>
+                                    <a href="cashback.html" class="btn btn-outline-secondary w-100 rounded-pill mb-2">Baca Selengkapnya</a>
                                     <a href="https://wa.me/6281234567890" target="_blank" class="btn btn-coral w-100 rounded-pill">Klaim Promo <i class="fab fa-whatsapp ms-1"></i></a>
                                 </div>
                             </div>
@@ -370,11 +408,35 @@
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         let topBtn = document.getElementById("floatTopBtn");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) topBtn.style.display = "flex";
-            else topBtn.style.display = "none";
-        };
-        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Logika Scroll-Up Sticky Navbar
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scroll Ke Bawah - Sembunyikan Navbar
+                navbar.classList.remove('nav-down');
+                navbar.classList.add('nav-up');
+            } else {
+                // Scroll Ke Atas - Tampilkan Navbar
+                navbar.classList.remove('nav-up');
+                navbar.classList.add('nav-down');
+            }
+            lastScrollTop = scrollTop;
+
+            // Logika Tampilkan Tombol Kembali ke Atas
+            if (scrollTop > 200) {
+                topBtn.style.display = "flex";
+            } else {
+                topBtn.style.display = "none";
+            }
+        });
+
+        function scrollToTop() { 
+            window.scrollTo({ top: 0, behavior: 'smooth' }); 
+        }
     </script>
 
     <script type="application/ld+json">

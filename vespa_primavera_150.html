@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- === SEO OPTIMIZATION & AI OVERVIEW === -->
     <title>Vespa Primavera 150 - Harga, Spesifikasi & Warna | Dealer Resmi</title>
     <meta name="description" content="Detail lengkap Vespa Primavera 150. Dapatkan informasi harga, spesifikasi mesin i-get, pilihan warna elegan, dan fitur unggulan. Pesan sekarang via WhatsApp!">
     <meta name="keywords" content="Vespa Primavera 150, Harga Vespa Primavera, Spesifikasi Vespa Primavera, Warna Vespa Primavera, Fitur Vespa Primavera, Kredit Vespa">
@@ -54,7 +55,7 @@
             width: 100%;
             max-width: 100vw;
             margin: 0;
-            padding: 0; /* Navbar tidak fixed, jadi tidak perlu padding-top */
+            padding: 0; 
             background-color: #fcfcfc;
         }
 
@@ -67,7 +68,18 @@
         .btn-coral { background-color: var(--toasted-coral); color: white; border: none; border-radius: 25px; padding: 10px 25px; transition: 0.3s; }
         .btn-coral:hover { background-color: var(--coral-hover); color: white; transform: translateY(-2px); }
         
-        /* --- Navbar --- */
+        /* --- Navbar Scroll Up Sticky --- */
+        #mainNavbar {
+            transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+            z-index: 1030;
+        }
+        #mainNavbar.nav-up {
+            transform: translateY(-100%);
+        }
+        #mainNavbar.nav-down {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
         .navbar .nav-link { font-weight: 500; color: #333; transition: 0.3s; }
         .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--toasted-coral); }
 
@@ -78,10 +90,19 @@
             display: flex;
             align-items: center;
             text-align: center;
-            padding: 60px 0;
+            /* Padding disesuaikan agar image menyentuh bagian paling atas layar tanpa gap putih, tapi teks tidak tertutup navbar */
+            padding-top: 100px; 
+            padding-bottom: 40px;
+            margin-top: 0;
         }
         .detail-title { font-size: 3.5rem; font-weight: 800; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
         
+        /* --- Carousel Image Styling --- */
+        .carousel-item img {
+            height: 400px;
+            object-fit: cover;
+        }
+
         /* --- Card Variant Styling --- */
         .variant-card { border: none; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; background: white; height: 100%; }
         .variant-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
@@ -90,7 +111,6 @@
         .variant-card:hover .variant-img img { transform: scale(1.05); }
         
         /* --- Feature Image Styling --- */
-        /* Menggunakan aspect-ratio: 1/1 agar bentuknya menjadi kotak, dengan max-width agar ukurannya kecil/pas */
         .feature-img { border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 280px; aspect-ratio: 1 / 1; object-fit: cover; display: block; margin: 0 auto; }
 
         /* --- Table Spesifikasi --- */
@@ -104,15 +124,32 @@
         .float-top { bottom: 95px; background-color: var(--light-teal); display: none; border: none; cursor: pointer; }
         .float-top:hover { background-color: #3e9e95; color: white; transform: scale(1.1); }
 
+        /* --- Tampilan Proporsional Mobile --- */
+        @media (max-width: 991.98px) {
+            footer.bg-dark { text-align: center !important; }
+            footer.bg-dark .d-flex { justify-content: center !important; }
+            footer.bg-dark ul { padding-left: 0; }
+            footer.bg-dark .opacity-75 i { margin-right: 8px; }
+            footer.bg-dark .social-icons a { margin: 0 7px; }
+        }
+
         @media (max-width: 768px) {
-            .detail-title { font-size: 2rem; }
-            .detail-hero { min-height: 50vh; }
+            .detail-title { font-size: 2.2rem; }
+            .detail-hero { min-height: 50vh; padding-top: 80px; padding-bottom: 30px; }
+            .carousel-item img { height: auto; aspect-ratio: 4/3; }
+            .variant-img { height: 220px; }
+            .feature-img { max-width: 250px; }
+            
+            .px-lg-3 { padding-left: 0.5rem !important; padding-right: 0.5rem !important; }
+            .btn-lg { padding: 10px 20px; font-size: 1rem; }
+            .navbar-brand { font-size: 1.25rem; }
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+    <!-- Navbar Menggunakan fixed-top dan nav-down untuk Scroll-Up -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-white py-2 fixed-top nav-down">
         <div class="container">
             <a class="navbar-brand text-coral fw-bold" href="index.html" aria-label="Beranda VespaMatic">
                 Vespa<span class="text-teal">Matic</span> <br>
@@ -141,7 +178,7 @@
                     <h1 class="detail-title">Vespa Primavera 150</h1>
                     <p class="lead mb-4">Garis desain ikonik yang memancarkan aura eksklusif. Dilengkapi teknologi mesin i-get generasi terbaru untuk performa mulus dan efisien di setiap jalanan perkotaan.</p>
                     <a href="#varian" class="btn btn-light btn-lg rounded-pill px-4 fw-bold shadow-sm me-2 mb-2 text-coral">Lihat Varian</a>
-                    <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20tertarik%20dengan%20Vespa%20Primavera%20150.%20Boleh%20minta%20info%20kredit%20dan%20stok?" target="_blank" rel="noopener noreferrer" class="btn btn-coral btn-lg rounded-pill px-5 fw-bold shadow-sm" aria-label="Pesan Sekarang via WhatsApp">
+                    <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20tertarik%20dengan%20Vespa%20Primavera%20150.%20Boleh%20minta%20info%20kredit%20dan%20stok?" target="_blank" rel="noopener noreferrer" class="btn btn-coral btn-lg rounded-pill px-5 fw-bold shadow-sm mb-2" aria-label="Pesan Sekarang via WhatsApp">
                         <i class="fab fa-whatsapp me-2" aria-hidden="true"></i> Pesan Sekarang
                     </a>
                 </div>
@@ -149,8 +186,60 @@
         </div>
     </header>
 
-    <section id="varian" class="py-5 bg-light">
+    <section id="detail-produk" class="py-5 bg-white border-bottom">
         <div class="container py-4">
+            <div class="row align-items-center">
+                <!-- Carousel Image Slider -->
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div id="productCarousel" class="carousel slide shadow-sm rounded-4 overflow-hidden" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#productCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="image/Vespa Primavera White Innocenza.webp" class="d-block w-100" alt="Vespa Primavera Tampak Samping">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="image/Vespa Primavera Blue Energia.webp" class="d-block w-100" alt="Detail Lampu LED Vespa Primavera">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="image/Gama Eléctrica Vespa _ Vespa ES.webp" class="d-block w-100" alt="Detail Velg dan Rem Vespa Primavera">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Deskripsi Produk -->
+                <div class="col-lg-6 ps-lg-5">
+                    <h2 class="fw-bold mb-3">Keanggunan <span class="text-coral">Sepanjang Masa</span></h2>
+                    <p class="text-muted" style="line-height: 1.8;">
+                        Sejak pertama kali diluncurkan pada tahun 1968, <strong>Vespa Primavera</strong> selalu menjadi ikon jiwa muda dan kebebasan. Generasi terbaru Primavera 150 mewarisi DNA klasik tersebut, namun telah berevolusi dengan fitur-fitur modern yang dirancang untuk kenyamanan mobilitas masa kini.
+                    </p>
+                    <p class="text-muted" style="line-height: 1.8;">
+                        Ditenagai oleh mesin <em>i-get</em> (Italian Green Experience Technology) 150cc 4-tak dengan 3-katup, skuter ini menawarkan tarikan yang halus, efisiensi bahan bakar yang luar biasa, dan emisi yang ramah lingkungan.
+                    </p>
+                    <ul class="list-unstyled text-muted mt-4">
+                        <li class="mb-2"><i class="fas fa-check-circle text-teal me-2"></i> Bodi monokok baja kokoh yang stabil di jalan.</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-teal me-2"></i> Velg 12 inci berdesain elegan untuk cengkeraman maksimal.</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-teal me-2"></i> Bagasi luas di bawah jok yang muat untuk helm <i>half-face</i>.</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-teal me-2"></i> Dilengkapi <i>port USB</i> terintegrasi untuk mengisi daya <i>smartphone</i>.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="varian" class="py-5 bg-light">
         <div class="container py-4">
             <div class="text-center mb-5">
                 <h2 class="fw-bold">Pilihan <span class="text-coral">Warna Elegan</span></h2>
@@ -212,14 +301,14 @@
                 <div class="col-md-6 mb-4 mb-md-0">
                     <img src="image/lampu primavera 150.webp" class="feature-img" alt="Lampu LED Vespa Primavera" loading="lazy">
                 </div>
-                <div class="col-md-6 ps-md-5">
+                <div class="col-md-6 ps-md-5 text-center text-md-start">
                     <h4 class="fw-bold mb-3"><i class="fas fa-lightbulb text-coral me-2" aria-hidden="true"></i> Full LED Lighting System</h4>
                     <p class="text-muted">Vespa Primavera dilengkapi dengan teknologi LED pada lampu depan utama dan lampu belakang. Memberikan visibilitas maksimal saat berkendara di malam hari sekaligus mempertegas karakter modern-klasik.</p>
                 </div>
             </div>
 
             <div class="row align-items-center flex-column-reverse flex-md-row mb-4">
-                <div class="col-md-6 pe-md-5 mt-4 mt-md-0">
+                <div class="col-md-6 pe-md-5 mt-4 mt-md-0 text-center text-md-start">
                     <h4 class="fw-bold mb-3"><i class="fas fa-shield-alt text-coral me-2" aria-hidden="true"></i> Anti-Lock Braking System (ABS)</h4>
                     <p class="text-muted">Keamanan Anda adalah prioritas. Rem cakram depan 200mm dilengkapi dengan sensor ABS hidrolik yang mencegah roda terkunci saat pengereman mendadak, menjamin kestabilan sempurna di segala kondisi jalan.</p>
                 </div>
@@ -340,52 +429,86 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h4 class="text-white fw-bold mb-3">Vespa<span class="text-teal">Matic</span></h4>
-                    <p class="text-white">Solusi berkendara penuh gaya untuk Anda. Dealer resmi dengan pelayanan prima.</p>
-                    <div class="d-flex justify-content-center justify-content-md-start mt-3">
-                        <a href="#" class="text-white fs-4 me-3" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
-                        <a href="#" class="text-white fs-4 me-3" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#" class="text-white fs-4" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <p class="text-white opacity-75">Solusi berkendara penuh gaya untuk Anda. Dealer resmi dengan pelayanan prima.</p>
+                    <div class="d-flex justify-content-center justify-content-md-start mt-3 social-icons">
+                        <a href="#" class="text-white fs-4 me-3 opacity-75 hover-coral" aria-label="Facebook"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#" class="text-white fs-4 me-3 opacity-75 hover-coral" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" class="text-white fs-4 opacity-75 hover-coral" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-white fw-bold mb-3">Tautan Cepat</h5>
                     <ul class="list-unstyled">
-                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none">Beranda</a></li>
-                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none">Tentang Kami</a></li>
-                        <li class="mb-2"><a href="produk.html" class="text-white text-decoration-none">Lini Produk</a></li>
-                        <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none">Blog</a></li>
+                        <li class="mb-2"><a href="index.html" class="text-white text-decoration-none opacity-75">Beranda</a></li>
+                        <li class="mb-2"><a href="about.html" class="text-white text-decoration-none opacity-75">Tentang Kami</a></li>
+                        <li class="mb-2"><a href="produk.html" class="text-white text-decoration-none opacity-75">Produk</a></li>
+                        <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none opacity-75">Blog</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-white fw-bold mb-3">Layanan Kami</h5>
                     <ul class="list-unstyled text-white">
-                        <li class="mb-2"><i class="fas fa-motorcycle text-teal me-2" aria-hidden="true"></i> Penjualan Unit Baru</li>
-                        <li class="mb-2"><i class="fas fa-tools text-teal me-2" aria-hidden="true"></i> Servis Berkala</li>
-                        <li class="mb-2"><i class="fas fa-cogs text-teal me-2" aria-hidden="true"></i> Suku Cadang Asli</li>
-                        <li class="mb-2"><i class="fas fa-file-invoice-dollar text-teal me-2" aria-hidden="true"></i> Konsultasi Kredit</li>
+                        <li class="mb-2 opacity-75"><i class="fas fa-motorcycle text-teal me-2" aria-hidden="true"></i> Penjualan Unit Baru</li>
+                        <li class="mb-2 opacity-75"><i class="fas fa-tools text-teal me-2" aria-hidden="true"></i> Servis Berkala</li>
+                        <li class="mb-2 opacity-75"><i class="fas fa-cogs text-teal me-2" aria-hidden="true"></i> Suku Cadang Asli</li>
+                        <li class="mb-2 opacity-75"><i class="fas fa-hand-holding-usd text-teal me-2" aria-hidden="true"></i> Konsultasi Kredit</li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h5 class="text-white fw-bold mb-3">Kontak Info</h5>
                     <ul class="list-unstyled text-white">
-                        <li class="mb-2"><i class="fas fa-map-marker-alt text-teal me-2" aria-hidden="true"></i> Jl. Raya Vespa No. 123, Malang</li>
-                        <li class="mb-2"><i class="fas fa-phone text-teal me-2" aria-hidden="true"></i> +62 812-3456-7890</li>
-                        <li class="mb-2"><i class="fas fa-envelope text-teal me-2" aria-hidden="true"></i> info@vespamatic.com</li>
-                        <li class="mb-2"><i class="fas fa-clock text-teal me-2" aria-hidden="true"></i> 08:00 - 17:00</li>
+                        <li class="mb-2 opacity-75"><i class="fas fa-map-marker-alt text-teal me-2" aria-hidden="true"></i> Jl. Raya Vespa No. 123, Malang</li>
+                        <li class="mb-2 opacity-75"><i class="fas fa-phone text-teal me-2" aria-hidden="true"></i> +62 812-3456-7890</li>
+                        <li class="mb-2 opacity-75"><i class="fas fa-envelope text-teal me-2" aria-hidden="true"></i> info@vespamatic.com</li>
+                        <li class="mb-2 opacity-75"><i class="fas fa-clock text-teal me-2" aria-hidden="true"></i> 08:00 - 17:00</li>
                     </ul>
                 </div>
             </div>
             <hr class="border-secondary mt-4 mb-3">
-            <div class="text-center text-white"><small>&copy; 2026 VespaMatic Dealer. All Rights Reserved.</small></div>
+            <div class="text-center text-white opacity-50">
+                <small>&copy; 2026 VespaMatic Dealer. All Rights Reserved.</small>
+            </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20tertarik%20dengan%20Vespa%20Primavera%20150." target="_blank" class="float-btn float-wa" title="Hubungi via WhatsApp" rel="noopener noreferrer" aria-label="Chat via WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-    </a>
-    <button onclick="scrollToTop()" id="floatTopBtn" class="float-btn float-top" title="Kembali ke atas" aria-label="Gulir ke atas halaman">
-        <i class="fas fa-chevron-up" aria-hidden="true"></i>
-    </button>
+    <a href="https://wa.me/6281234567890" target="_blank" class="float-btn float-wa" aria-label="Chat WhatsApp" rel="noopener noreferrer"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+    <button onclick="scrollToTop()" id="floatTopBtn" class="float-btn float-top" aria-label="Scroll ke Atas"><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Logika untuk tombol Floating Top dan Scroll Up Sticky Navbar
+        let topBtn = document.getElementById("floatTopBtn");
+        let lastScrollTop = 0;
+        const navbar = document.getElementById("mainNavbar");
+
+        window.addEventListener("scroll", function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Mengatur Floating Top Button
+            if (scrollTop > 200) {
+                topBtn.style.display = "flex";
+            } else {
+                topBtn.style.display = "none";
+            }
+
+            // Mengatur Scroll Up Sticky Navbar
+            if (scrollTop > lastScrollTop && scrollTop > 80) {
+                // Saat scroll ke bawah (Hide Navbar)
+                navbar.classList.remove('nav-down');
+                navbar.classList.add('nav-up');
+            } else {
+                // Saat scroll ke atas (Show Navbar)
+                navbar.classList.remove('nav-up');
+                navbar.classList.add('nav-down');
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 
     <script type="application/ld+json">
     {
@@ -445,22 +568,6 @@
         }
       ]
     }
-    </script>
-
-    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <script>
-        let topBtn = document.getElementById("floatTopBtn");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-                topBtn.style.display = "flex";
-            } else {
-                topBtn.style.display = "none";
-            }
-        }
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
     </script>
 
 </body>

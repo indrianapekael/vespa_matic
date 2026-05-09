@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- === SEO OPTIMIZATION & AI OVERVIEW === -->
-    <title>5 Aksesoris Wajib Vespa Matic untuk Touring & Harian | VespaMatic</title>
-    <meta name="description" content="Tingkatkan utilitas dan estetika Vespa Anda dengan 5 aksesoris wajib ini. Mulai dari flyscreen, perlindungan bodi, hingga boks tambahan untuk kenyamanan.">
-    <meta name="keywords" content="aksesoris vespa matic, variasi vespa sprint, flyscreen vespa, crashbar vespa, aksesoris touring vespa, perlengkapan vespa">
+    <title>Inspirasi Outfit Riding Vespa yang Stylish & Aman | Blog VespaMatic</title>
+    <meta name="description" content="Tampil maksimal saat Sunmori! Temukan inspirasi outfit riding Vespa Matic yang stylish, mulai dari gaya klasik, casual modern, hingga perlengkapan safety riding.">
+    <meta name="keywords" content="outfit riding vespa, gaya anak vespa, apparel vespa matic, jaket vespa stylish, sepatu riding vespa, fashion vespa modern">
     <meta name="author" content="Tim Redaksi VespaMatic">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     
     <!-- URL Dinamis Canonical -->
-    <link rel="canonical" href="https://www.vespamaticdealer.com/aksesoris_wajib_vespa.html">
+    <link rel="canonical" href="https://www.vespamaticdealer.com/outfit_riding_vespa.html">
 
     <!-- Open Graph (Facebook, WhatsApp) -->
     <meta property="og:locale" content="id_ID">
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.vespamaticdealer.com/aksesoris_wajib_vespa.html">
-    <meta property="og:title" content="5 Aksesoris Wajib Vespa Matic untuk Touring & Harian">
-    <meta property="og:description" content="Maksimalkan fungsi dan tampilan Vespa Anda dengan pilihan aksesoris yang tepat dan berkualitas.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1542045543-9877416353d2?auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:url" content="https://www.vespamaticdealer.com/outfit_riding_vespa.html">
+    <meta property="og:title" content="Inspirasi Outfit Riding Vespa yang Stylish & Aman">
+    <meta property="og:description" content="Padu padan jaket, sarung tangan, dan boots untuk tampil maksimal saat sunday morning ride bersama Vespa kesayangan.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1621245089332-95f24f46bc0f?auto=format&fit=crop&w=1200&q=80">
     <meta property="og:site_name" content="VespaMatic Dealer">
 
     <!-- === FAVICON MAXIMIZATION === -->
@@ -54,7 +54,22 @@
             background-color: #fcfcfc;
         }
 
-        /* Navbar No Gap */
+        /* Navbar Sticky Scroll-Up System */
+        .navbar {
+            transition: transform 0.4s ease-in-out, background-color 0.3s;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+        .navbar.nav-up {
+            transform: translateY(-100%);
+        }
+        .navbar.nav-down {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
         .navbar .nav-link { font-weight: 500; color: #333; transition: 0.3s; }
         .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--toasted-coral); }
 
@@ -63,7 +78,15 @@
         .btn-coral { background-color: var(--toasted-coral); color: white; border: none; border-radius: 25px; padding: 10px 25px; transition: 0.3s;}
         .btn-coral:hover { background-color: var(--coral-hover); color: white; }
         
-        /* Article Content Styling */
+        /* Proportional Spacing */
+        body { padding-top: 80px; }
+        @media (max-width: 768px) {
+            body { padding-top: 70px; }
+            h1 { font-size: 1.8rem !important; }
+            .article-content { font-size: 1rem; }
+        }
+
+        /* Article Styling */
         .article-content { font-size: 1.1rem; line-height: 1.8; color: #4a4a4a; }
         .article-content h2 { font-weight: 700; color: #2d2d2d; margin-top: 2rem; margin-bottom: 1rem; }
         
@@ -74,8 +97,14 @@
         
         figcaption { font-size: 0.85rem; color: #6c757d; text-align: center; margin-top: 8px; font-style: italic; }
         
+        /* Author Box Mobile Proportions */
         .author-box { display: flex; align-items: center; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 3rem; }
-        .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px; }
+        .author-img { width: 80px; height: 80px; aspect-ratio: 1/1; border-radius: 50%; object-fit: cover; margin-right: 20px; flex-shrink: 0; }
+        
+        @media (max-width: 576px) {
+            .author-box { flex-direction: column; text-align: center; }
+            .author-img { margin-right: 0; margin-bottom: 15px; }
+        }
         
         .share-btn { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: white; margin-right: 10px; transition: 0.3s; text-decoration: none; font-size: 1.1rem;}
         .share-fb { background-color: #1877f2; } 
@@ -89,7 +118,7 @@
         .float-top { bottom: 95px; background-color: var(--light-teal); border: none; cursor: pointer; display: none; }
         .float-top:hover { transform: scale(1.1); color: white;}
 
-        /* Related Articles (image_75975a.png style) */
+        /* Related Articles Card */
         .related-card {
             border: none;
             border-radius: 12px;
@@ -106,8 +135,8 @@
         .btn-baca { background-color: var(--toasted-coral); color: white; border-radius: 50px; padding: 10px; text-align: center; text-decoration: none; display: block; width: 100%; font-weight: 500; transition: 0.3s; }
         .btn-baca:hover { background-color: var(--coral-hover); color: white; }
 
-        /* Footer (image_7580f0.png style) */
-        .custom-footer { background-color: #212529; color: #fff; padding: 60px 0 30px 0; }
+        /* Footer Style & Mobile Centering */
+        .custom-footer { background-color: #212529; color: #fff; padding: 60px 0 20px 0; }
         .footer-brand { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
         .footer-desc { font-size: 0.95rem; line-height: 1.6; color: #adb5bd; margin-bottom: 1.5rem; }
         .footer-heading { font-size: 1.15rem; font-weight: 700; margin-bottom: 1.5rem; }
@@ -120,14 +149,32 @@
         .social-icons a { color: #fff; font-size: 1.2rem; margin-right: 15px; transition: 0.3s; }
         .social-icons a:hover { color: var(--toasted-coral); }
 
-        /* Copyright Section Styling */
-        .footer-copyright { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 25px; margin-top: 40px; color: #adb5bd; font-size: 0.9rem; }
+        @media (max-width: 991px) {
+            .custom-footer { text-align: center; }
+            .footer-contact-item { justify-content: center; }
+            .social-icons { margin-bottom: 2rem; }
+            .social-icons a { margin: 0 10px; }
+            .footer-contact-item i { margin-right: 8px; }
+        }
+        
+        /* Copyright Style */
+        .footer-copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .footer-copyright p {
+            color: #adb5bd;
+            font-size: 0.9rem;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+    <!-- Navbar Sticky Scroll Up -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 nav-down">
         <div class="container">
             <a class="navbar-brand text-coral fw-bold" href="index.html">
                 Vespa<span class="text-teal">Matic</span> <br>
@@ -157,23 +204,22 @@
                   <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-teal">Home</a></li>
                     <li class="breadcrumb-item"><a href="blog.html" class="text-decoration-none text-teal">Blog</a></li>
-                    <li class="breadcrumb-item active">Aksesoris</li>
+                    <li class="breadcrumb-item active">Gaya Hidup</li>
                   </ol>
                 </nav>
 
-                <!-- Judul Artikel -->
-                <h1 class="fw-bold mb-3" style="font-size: 2.5rem; color: #222;">5 Aksesoris Wajib Vespa Matic untuk Touring & Harian</h1>
-                <p class="text-muted mb-4"><i class="fas fa-calendar-alt me-2"></i> 06 Mei 2026 &nbsp; | &nbsp; <i class="fas fa-box-open me-2"></i> Aksesoris & Gaya Hidup</p>
+                <!-- Judul -->
+                <h1 class="fw-bold mb-3" style="font-size: 2.5rem; color: #222;">Inspirasi Outfit Riding Vespa yang Stylish & Aman</h1>
+                <p class="text-muted mb-4"><i class="fas fa-calendar-alt me-2"></i> 06 Mei 2026 &nbsp; | &nbsp; <i class="fas fa-tshirt me-2"></i> Fashion & Lifestyle</p>
 
                 <!-- Gambar 1 (Atas) -->
                 <figure class="mb-4">
-                    <img src="image/aksesoris vespa.webp" class="img-fluid rounded-3 shadow-sm w-100" alt="Vespa Matic dengan aksesoris lengkap">
-                    <figcaption>Menambahkan aksesoris yang tepat meningkatkan utilitas sekaligus mempertahankan estetika klasik.</figcaption>
+                    <img src="image/outfit vespa.webp" class="img-fluid rounded-3 shadow-sm w-100" alt="Pengendara Vespa dengan outfit stylish">
+                    <figcaption>Padu padan outfit yang tepat akan meningkatkan rasa percaya diri sekaligus memberikan perlindungan saat berkendara.</figcaption>
                 </figure>
 
                 <div class="article-content">
-                    <!-- Ringkasan Artikel -->
-                    <p class="lead fw-normal">Memiliki Vespa Matic bukan sekadar soal transportasi, melainkan seni mengekspresikan karakter. Namun, di balik penampilannya yang modis, utilitas tetaplah kunci. Berikut adalah 5 aksesoris wajib yang akan membuat pengalaman berkendara Anda jauh lebih nyaman dan aman, baik untuk mobilitas kota maupun perjalanan jauh.</p>
+                    <p class="lead fw-normal">Berkendara Vespa Matic bukan sekadar berpindah tempat, tapi soal gaya dan kenyamanan. Namun, tampilan yang fashionable jangan sampai mengorbankan aspek keselamatan. Artikel ini akan memberikan inspirasi outfit riding mulai dari gaya retro klasik hingga casual modern yang tetap memenuhi standar keamanan berkendara.</p>
 
                     <!-- Table of Content -->
                     <div class="toc-box mb-5">
@@ -183,91 +229,86 @@
                         </button>
                         <div class="collapse mt-3" id="collapseTOC">
                             <ul class="mb-0">
-                                <li class="mb-2"><a href="#flyscreen" class="text-decoration-none text-teal fw-bold">1. Flyscreen (Windshield)</a></li>
-                                <li class="mb-2"><a href="#crashbar" class="text-decoration-none text-teal fw-bold">2. Crashbar & Front Bumper</a></li>
-                                <li class="mb-2"><a href="#floormat" class="text-decoration-none text-teal fw-bold">3. Floormat (Karpet Karet)</a></li>
-                                <li class="mb-2"><a href="#box-tambahan" class="text-decoration-none text-teal fw-bold">4. Top Box & Rack</a></li>
-                                <li class="mb-2"><a href="#spion-custom" class="text-decoration-none text-teal fw-bold">5. Spion Retro Aftermarket</a></li>
+                                <li class="mb-2"><a href="#classic-gentleman" class="text-decoration-none text-teal fw-bold">1. Gaya Classic Gentleman / Lady</a></li>
+                                <li class="mb-2"><a href="#urban-casual" class="text-decoration-none text-teal fw-bold">2. Urban Casual & Sporty</a></li>
+                                <li class="mb-2"><a href="#safety-gear" class="text-decoration-none text-teal fw-bold">3. Essential Safety Gear</a></li>
                             </ul>
                         </div>
                     </div>
 
-                    <h2 id="flyscreen">1. Flyscreen (Windshield)</h2>
-                    <p>Bukan hanya soal gaya, Flyscreen berfungsi memecah angin agar tidak langsung mengenai dada pengendara. Ini sangat krusial untuk mencegah kelelahan (fatigue) dan masuk angin saat melakukan <i>night ride</i> atau touring jarak jauh.</p>
+                    <h2 id="classic-gentleman">1. Gaya Classic Gentleman / Lady</h2>
+                    <p>Untuk Anda pengguna Vespa Primavera atau GTS, gaya semi-formal sangatlah cocok. Penggunaan Jaket Parka atau Windbreaker berwarna earth tone memberikan kesan mewah dan rapi. Jangan lupa gunakan sepatu boots kulit untuk memperkuat aura retro.</p>
 
-                    <!-- Komponen BACA JUGA -->
                     <div class="baca-juga shadow-sm">
                         <span class="text-coral"><i class="fas fa-book-open me-2"></i> Baca Juga:</span> 
                         <a href="helm_vespa.html" class="text-decoration-none text-dark ms-1">Panduan Memilih Helm Vespa yang Aman dan Stylish</a>
                     </div>
 
-                    <h2 id="crashbar">2. Crashbar & Front Bumper</h2>
-                    <p>Mengingat bodi Vespa terbuat dari plat baja (monocoque), biaya perbaikan cat akibat jatuh atau senggolan cukup mahal. Crashbar memberikan lapisan perlindungan ekstra untuk bodi samping, sementara front bumper melindungi spakbor depan dari benturan parkir.</p>
+                    <h2 id="urban-casual">2. Urban Casual & Sporty</h2>
+                    <p>Bagi pemilik Vespa Sprint atau S yang berjiwa muda, perpaduan Hoodie Oversize dengan rompi (vest) serta celana denim adalah pilihan favorit. Gaya ini sangat nyaman untuk mobilitas harian di perkotaan.</p>
 
                     <!-- Gambar 2 (Tengah) -->
                     <figure class="my-5">
-                        <img src="image/body vespa.webp" class="img-fluid rounded-3 shadow-sm w-100" alt="Detail crashbar pada Vespa" loading="lazy">
-                        <figcaption>Crashbar original atau aftermarket premium menjamin presisi pemasangan tanpa merusak bodi.</figcaption>
+                        <img src="image/aksesoris tangan vespa.webp" class="img-fluid rounded-3 shadow-sm w-100" alt="Detail sarung tangan dan helm vespa" loading="lazy">
+                        <figcaption>Aksesoris seperti sarung tangan kulit tidak hanya menambah estetika tapi juga melindungi tangan.</figcaption>
                     </figure>
 
-                    <h2 id="floormat">3. Floormat (Karpet Karet)</h2>
-                    <p>Karpet karet original membantu melindungi dek bawah dari goresan alas kaki yang berpasir. Selain itu, floormat mempermudah pembersihan motor; Anda cukup melepas karpet dan mencucinya tanpa harus menyikat dek motor secara langsung.</p>
-
-                    <h2 id="box-tambahan">4. Top Box & Rack</h2>
-                    <p>Vespa memang memiliki bagasi bawah jok, namun kapasitasnya terbatas (terutama untuk helm full face tertentu). Menambahkan Top Box original memberikan ruang penyimpanan ekstra yang aman dan tahan cuaca untuk jas hujan maupun tas kerja.</p>
-
-                    <h2 id="spion-custom">5. Spion Retro Aftermarket</h2>
-                    <p>Untuk melengkapi tampilan, spion model <i>round</i> atau spion <i>bar-end</i> sering menjadi pilihan. Pastikan Anda memilih spion yang tetap memberikan visibilitas luas ke arah belakang demi keselamatan berkendara.</p>
+                    <h2 id="safety-gear">3. Essential Safety Gear</h2>
+                    <p>Apapun gaya yang Anda pilih, tiga hal ini wajib ada: Helm tersertifikasi SNI, Sarung Tangan, dan Sepatu tertutup. Keamanan tetap menjadi prioritas utama di atas estetika semata.</p>
 
                     <hr class="my-5">
 
-                    <!-- FAQ -->
-                    <h3 class="fw-bold mb-4">FAQ Aksesoris Vespa</h3>
-                    <div class="accordion mb-5 shadow-sm" id="faqAksesoris">
+                    <!-- FAQ Outfit Riding Vespa -->
+                    <h3 class="fw-bold mb-4">FAQ (Outfit & Keamanan Berkendara)</h3>
+                    <div class="accordion mb-5 shadow-sm" id="faqOutfitVespa">
+    
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
-                                    Apakah pemasangan crashbar merusak garansi mesin?
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOutfit1" aria-expanded="true">
+                                    Apa jenis jaket yang cocok untuk riding Vespa agar tetap aman tapi tidak terlihat kaku?
                                 </button>
                             </h2>
-                            <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAksesoris">
+                            <div id="faqOutfit1" class="accordion-collapse collapse show" data-bs-parent="#faqOutfitVespa">
                                 <div class="accordion-body">
-                                    Tidak. Pemasangan aksesoris bodi bersifat eksternal dan tidak memengaruhi sistem kelistrikan atau mesin utama, sehingga garansi tetap aman selama tidak ada pemotongan kabel atau modifikasi rangka.
+                                    Untuk riding Vespa, Anda bisa memilih jaket berbahan kulit asli, denim tebal, atau kanvas parasut (seperti model jaket Harrington atau Bomber). Pastikan jaket tersebut memiliki material yang cukup tebal untuk menahan terpaan angin dan meminimalisir gesekan, namun tetap memberikan kesan kasual, elegan, dan menunjang estetika klasik Vespa Anda.
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
-                                    Mana yang lebih baik, Flyscreen pendek atau panjang?
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqOutfit2" aria-expanded="false">
+                                    Bolehkah riding Vespa menggunakan sepatu kets atau sneakers biasa?
                                 </button>
                             </h2>
-                            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAksesoris">
+                            <div id="faqOutfit2" class="accordion-collapse collapse" data-bs-parent="#faqOutfitVespa">
                                 <div class="accordion-body">
-                                    Flyscreen pendek lebih cocok untuk penggunaan harian karena menjaga tampilan tetap minimalis. Flyscreen panjang lebih ideal untuk touring karena memberikan perlindungan angin yang jauh lebih maksimal.
+                                    Untuk alasan keamanan, sangat disarankan menggunakan sepatu yang menutupi mata kaki (seperti sepatu <i>boots</i> kulit atau sneakers tipe <i>high-top</i>). Selain sangat cocok dipadukan dengan gaya retro, sepatu jenis ini memberikan perlindungan ekstra pada pergelangan kaki dari benturan, kerikil, atau panas mesin dibandingkan sneakers potongan pendek atau sandal.
                                 </div>
                             </div>
                         </div>
+
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
-                                    Apakah Top Box membuat motor jadi limbung?
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqOutfit3" aria-expanded="false">
+                                    Apakah sarung tangan (gloves) wajib dipakai saat riding Vespa harian?
                                 </button>
                             </h2>
-                            <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAksesoris">
+                            <div id="faqOutfit3" class="accordion-collapse collapse" data-bs-parent="#faqOutfitVespa">
                                 <div class="accordion-body">
-                                    Selama berat muatan di dalam box tidak melebihi rekomendasi (biasanya 3-5kg), keseimbangan motor tetap terjaga dengan baik berkat desain rack yang sudah disesuaikan dengan titik berat Vespa.
+                                    Ya, sarung tangan sangat penting untuk dipakai baik saat touring maupun riding harian. Selain melindungi punggung dan telapak tangan dari sengatan matahari serta potensi luka jika terjadi insiden, sarung tangan berbahan kulit (<i>leather gloves</i>) dengan model klasik akan membuat cengkeraman ke tuas gas lebih mantap sekaligus mendongkrak penampilan Anda secara keseluruhan.
                                 </div>
                             </div>
                         </div>
+
                     </div>
 
                     <!-- Profil Penulis -->
                     <div class="author-box mb-4">
-                        <img src="image/profile.webp" alt="Sherlyn Wulandari" class="author-img rounded-circle">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Penulis" class="author-img">
                         <div>
-                            <h5 class="fw-bold mb-1">Ditulis oleh: Sherlyn Wulandari</h5>
-                            <p class="text-muted small mb-0">Konsultan aksesoris di VespaMatic. Memiliki pengalaman lebih dari 5 tahun dalam mengkurasi komponen modifikasi skuter modern.</p>
+                            <h5 class="fw-bold mb-1">Ditulis oleh: Dimas Pratama</h5>
+                            <p class="text-muted small mb-0">Antusias gaya hidup roda dua dan kontributor fashion di VespaMatic. Memiliki pengalaman 5 tahun dalam mengulas apparel.</p>
                         </div>
                     </div>
 
@@ -283,11 +324,31 @@
         </div>
     </main>
 
-    <!-- Artikel Terkait (image_75975a.png style) -->
+    <!-- Artikel Terkait -->
     <section class="py-5 bg-light border-top">
         <div class="container">
             <h2 class="text-center fw-bold mb-5">Artikel <span class="text-coral">Terkait</span></h2>
             <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <img src="image/helm retro.webp" class="card-img-top" alt="Helm Vespa">
+                        <div class="card-body">
+                            <h5 class="card-title">Panduan Memilih Helm Vespa yang Aman dan Stylish</h5>
+                            <p class="card-text">Lengkapi gaya berkendara Vespa Anda dengan pilihan helm yang tepat dan standar keamanan tinggi.</p>
+                            <a href="helm_vespa.html" class="btn-baca">Baca Artikel</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="related-card">
+                        <img src="image/aksesoris vespa.webp" class="card-img-top" alt="Aksesoris Vespa">
+                        <div class="card-body">
+                            <h5 class="card-title">5 Aksesoris Wajib Vespa Matic untuk Touring & Harian</h5>
+                            <p class="card-text">Maksimalkan fungsi dan tampilan Vespa Anda dengan pilihan aksesoris yang tepat dan berkualitas.</p>
+                            <a href="aksesoris_wajib_vespa.html" class="btn-baca">Baca Artikel</a>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-4">
                     <div class="related-card">
                         <img src="image/vespa tua.webp" class="card-img-top" alt="Rawat Cat Vespa">
@@ -298,31 +359,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="related-card">
-                        <img src="image/sunmori vespa (1).webp" class="card-img-top" alt="Touring Vespa">
-                        <div class="card-body">
-                            <h5 class="card-title">7 Rute Touring Santai Akhir Pekan Bersama Teman</h5>
-                            <p class="card-text">Lepas penat dengan rute touring Vespa terbaik yang menawarkan pemandangan indah.</p>
-                            <a href="rute_touring_vespa.html" class="btn-baca">Baca Artikel</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="related-card">
-                        <img src="image/vespa modif.webp" class="card-img-top" alt="Modifikasi Vespa">
-                        <div class="card-body">
-                            <h5 class="card-title">Panduan Modifikasi Vespa Matic: Performa & Estetika</h5>
-                            <p class="card-text">Tips cerdas modifikasi Vespa Matic untuk harian tanpa menggugurkan garansi resmi.</p>
-                            <a href="modifikasi_vespa.html" class="btn-baca">Baca Artikel</a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer (image_7580f0.png style) -->
+    <!-- Footer -->
     <footer class="custom-footer">
         <div class="container">
             <div class="row">
@@ -340,7 +381,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Beranda</a></li>
                         <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="index.html#product">Lini Produk</a></li>
+                        <li><a href="produk.html">Produk</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
@@ -350,6 +391,7 @@
                         <li><a href="#"><i class="fas fa-motorcycle text-teal me-2"></i> Penjualan Unit Baru</a></li>
                         <li><a href="#"><i class="fas fa-tools text-teal me-2"></i> Servis Berkala</a></li>
                         <li><a href="#"><i class="fas fa-cogs text-teal me-2"></i> Suku Cadang Asli</a></li>
+                        <li><a href="#"><i class="fas fa-file-invoice-dollar text-teal me-2"></i> Konsultasi Kredit</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -368,12 +410,12 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Footer Bottom / Copyright Section -->
-            <div class="row mt-4">
+            
+            <!-- SECTION COPYRIGHT -->
+            <div class="row">
                 <div class="col-12 text-center">
                     <div class="footer-copyright">
-                        &copy; 2026 VespaMatic Dealer. All Rights Reserved.
+                        <p>&copy; 2026 VespaMatic Dealer. All Rights Reserved.</p>
                     </div>
                 </div>
             </div>
@@ -387,6 +429,25 @@
     <!-- Scripts -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Navbar Sticky Scroll Up Logic
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scroll Down
+                navbar.classList.remove('nav-down');
+                navbar.classList.add('nav-up');
+            } else {
+                // Scroll Up
+                navbar.classList.remove('nav-up');
+                navbar.classList.add('nav-down');
+            }
+            lastScrollTop = scrollTop;
+        });
+
         document.addEventListener("DOMContentLoaded", function() {
             var url = encodeURIComponent(window.location.href);
             var title = encodeURIComponent(document.title);

@@ -54,7 +54,22 @@
             background-color: #fcfcfc;
         }
 
-        /* Navbar No Gap */
+        /* Navbar Sticky Scroll-Up System */
+        .navbar {
+            transition: transform 0.4s ease-in-out, background-color 0.3s;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+        .navbar.nav-up {
+            transform: translateY(-100%);
+        }
+        .navbar.nav-down {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
         .navbar .nav-link { font-weight: 500; color: #333; transition: 0.3s; }
         .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--toasted-coral); }
 
@@ -62,9 +77,18 @@
         .text-teal { color: var(--light-teal); }
         .btn-coral { background-color: var(--toasted-coral); color: white; border: none; border-radius: 25px; padding: 10px 25px; transition: 0.3s;}
         .btn-coral:hover { background-color: var(--coral-hover); color: white; }
+        
+        /* Proportional Spacing */
+        body { padding-top: 80px; }
         .article-content { font-size: 1.1rem; line-height: 1.8; color: #4a4a4a; }
         .article-content h2 { font-weight: 700; color: #2d2d2d; margin-top: 2rem; margin-bottom: 1rem; }
         
+        @media (max-width: 768px) {
+            body { padding-top: 70px; }
+            h1 { font-size: 1.8rem !important; }
+            .article-content { font-size: 1rem; }
+        }
+
         .toc-box { background-color: #f8f9fa; border-left: 4px solid var(--toasted-coral); border-radius: 8px; padding: 20px; }
         .toc-btn { text-decoration: none; color: #333; font-weight: bold; width: 100%; text-align: left; background: none; border: none; padding: 0; display: flex; justify-content: space-between; align-items: center; }
         
@@ -75,6 +99,11 @@
         .author-box { display: flex; align-items: center; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 3rem; }
         .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px; flex-shrink: 0; }
         
+        @media (max-width: 576px) {
+            .author-box { flex-direction: column; text-align: center; }
+            .author-img { margin-right: 0; margin-bottom: 15px; }
+        }
+
         .share-btn { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: white; margin-right: 10px; transition: 0.3s; text-decoration: none; font-size: 1.1rem;}
         .share-fb { background-color: #1877f2; } 
         .share-tw { background-color: #1da1f2; } 
@@ -87,7 +116,7 @@
         .float-top { bottom: 95px; background-color: var(--light-teal); border: none; cursor: pointer; display: none; }
         .float-top:hover { transform: scale(1.1); color: white;}
 
-        /* Related Articles (image_75975a.png style) */
+        /* Related Articles Card */
         .related-card {
             border: none;
             border-radius: 12px;
@@ -98,13 +127,13 @@
         }
         .related-card:hover { transform: translateY(-5px); }
         .related-card img { border-radius: 12px 12px 0 0; height: 200px; object-fit: cover; }
-        .related-card .card-body { padding: 2rem; }
+        .related-card .card-body { padding: 1.5rem; }
         .related-card .card-title { font-size: 1.1rem; font-weight: 700; line-height: 1.4; margin-bottom: 0.5rem; }
         .related-card .card-text { font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; }
         .btn-baca { background-color: var(--toasted-coral); color: white; border-radius: 50px; padding: 10px; text-align: center; text-decoration: none; display: block; width: 100%; font-weight: 500; transition: 0.3s; }
         .btn-baca:hover { background-color: var(--coral-hover); color: white; }
 
-        /* Footer Style (image_7580f0.png style) */
+        /* Footer Style & Mobile Centering */
         .custom-footer { background-color: #212529; color: #fff; padding: 60px 0 30px 0; }
         .footer-brand { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
         .footer-desc { font-size: 0.95rem; line-height: 1.6; color: #adb5bd; margin-bottom: 1.5rem; }
@@ -118,17 +147,24 @@
         .social-icons a { color: #fff; font-size: 1.2rem; margin-right: 15px; transition: 0.3s; }
         .social-icons a:hover { color: var(--toasted-coral); }
 
-        /* Bottom Copyright Styling */
+        @media (max-width: 991px) {
+            .custom-footer { text-align: center; }
+            .footer-contact-item { justify-content: center; }
+            .social-icons { margin-bottom: 2rem; }
+            .social-icons a { margin: 0 10px; }
+            .footer-contact-item i { margin-right: 8px; }
+        }
+
         .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 40px; padding-top: 20px; color: #adb5bd; font-size: 0.9rem; text-align: center; }
     </style>
 </head>
 <body>
 
-    <!-- Navbar dengan class sticky-top agar tidak ikut terscroll -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-2">
+    <!-- Navbar Sticky Scroll Up -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 nav-down">
         <div class="container">
             <a class="navbar-brand text-coral fw-bold" href="index.html">
-                Vespa<span class="text-teal">Matic</span> <br>
+                Vespa<span class="text-teal">Matic</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -163,15 +199,14 @@
                 <h1 class="fw-bold mb-3" style="font-size: 2.5rem; color: #222;">Cara Mengatasi CVT Vespa Matic Bergetar (Gredek)</h1>
                 <p class="text-muted mb-4"><i class="fas fa-calendar-alt me-2"></i> 06 Mei 2026 &nbsp; | &nbsp; <i class="fas fa-wrench me-2"></i> Tips & Perawatan</p>
 
-                <!-- Gambar 1 (Atas) -->
+                <!-- Gambar 1 -->
                 <figure class="mb-4">
                     <img src="image/ctv diperbaiki.webp" class="img-fluid rounded-3 shadow-sm w-100" alt="Pemeriksaan Komponen CVT Vespa">
                     <figcaption>Debu kampas ganda yang menumpuk sering menjadi biang keladi getaran pada CVT.</figcaption>
                 </figure>
 
                 <div class="article-content">
-                    <!-- Ringkasan -->
-                    <p class="lead fw-normal">Pernahkah Anda merasakan getaran atau <i>gredek</i> pada bagian CVT Vespa Matic saat akan mulai jalan? Masalah ini sangat umum terjadi, namun jika dibiarkan dapat mengurangi kenyamanan berkendara. Pelajari penyebab utamanya dan solusi jangka panjang agar tarikan Vespa Anda kembali halus.</p>
+                    <p class="lead fw-normal">Pernahkah Anda merasakan getaran atau <i>gredek</i> pada bagian CVT Vespa Matic saat akan mulai jalan? Pelajari penyebab utamanya dan solusi jangka panjang agar tarikan Vespa Anda kembali halus.</p>
 
                     <!-- Table of Content -->
                     <div class="toc-box mb-5">
@@ -182,32 +217,30 @@
                         <div class="collapse mt-3" id="collapseTOC">
                             <ul class="mb-0">
                                 <li class="mb-2"><a href="#penyebab-gredek" class="text-decoration-none text-teal fw-bold">1. Penyebab Utama CVT Bergetar</a></li>
-                                <li class="mb-2"><a href="#solu-si-pembersihan" class="text-decoration-none text-teal fw-bold">2. Solusi Pembersihan & Perawatan Rutin</a></li>
+                                <li class="mb-2"><a href="#solusi-pembersihan" class="text-decoration-none text-teal fw-bold">2. Solusi Pembersihan & Perawatan Rutin</a></li>
                                 <li class="mb-2"><a href="#upgrade-komponen" class="text-decoration-none text-teal fw-bold">3. Tips Upgrade Komponen Kirian</a></li>
                             </ul>
                         </div>
                     </div>
 
                     <h2 id="penyebab-gredek">1. Penyebab Utama CVT Bergetar</h2>
-                    <p>Getaran yang terjadi biasanya disebabkan oleh debu dari sisa kampas ganda yang terperangkap di dalam mangkok kopling. Hal ini membuat kampas sulit mendapatkan traksi instan sehingga terjadi selip sesaat yang terasa seperti getaran. Selain itu, kondisi <i>V-Belt</i> yang sudah retak atau roller yang peyang juga bisa berkontribusi pada masalah ini.</p>
+                    <p>Getaran biasanya disebabkan oleh debu sisa kampas ganda yang terperangkap di dalam mangkok kopling. Hal ini membuat kampas sulit mendapatkan traksi instan sehingga terjadi selip sesaat.</p>
 
-                    <!-- Baca Juga -->
                     <div class="baca-juga shadow-sm">
                         <span class="text-coral"><i class="fas fa-book-open me-2"></i> Baca Juga:</span> 
                         <a href="servis_berkala_vespa.html" class="text-decoration-none text-dark ms-1">Panduan Servis Berkala Vespa Matic: Jadwal & Tips</a>
                     </div>
 
                     <h2 id="solusi-pembersihan">2. Solusi Pembersihan & Perawatan Rutin</h2>
-                    <p>Cara paling sederhana adalah melakukan servis CVT secara berkala setiap 3.000 KM. Mekanik akan membuka blok CVT, membersihkan debu dengan kompresor, dan memberikan pelumas (<i>grease</i>) khusus pada bagian yang membutuhkan. Hal ini akan mengembalikan performa kopling agar lebih menggigit.</p>
+                    <p>Lakukan servis CVT secara berkala setiap 3.000 KM. Mekanik akan membersihkan debu dengan kompresor dan memberikan pelumas (<i>grease</i>) khusus pada bagian yang membutuhkan.</p>
 
-                    <!-- Gambar 2 (Tengah) -->
                     <figure class="my-5">
                         <img src="image/mekanik vespa.webp" class="img-fluid rounded-3 shadow-sm w-100" alt="Mekanik membersihkan CVT" loading="lazy">
                         <figcaption>Servis rutin membantu mendeteksi komponen yang aus sebelum mengalami kerusakan fatal.</figcaption>
                     </figure>
 
                     <h2 id="upgrade-komponen">3. Tips Upgrade Komponen Kirian</h2>
-                    <p>Jika Anda menginginkan solusi yang lebih permanen, Anda bisa melakukan modifikasi tipis pada bagian "kirian". Penggantian per sentri (per kampas ganda) dengan yang sedikit lebih keras atau penggunaan mangkok kopling yang sudah dikartel/dilubangi dapat membantu membuang debu lebih cepat dan mengurangi gejala gredek secara signifikan.</p>
+                    <p>Penggantian per sentri dengan yang sedikit lebih keras atau penggunaan mangkok kopling yang sudah dikartel/dilubangi dapat membantu membuang debu lebih cepat.</p>
 
                     <hr class="my-5">
 
@@ -222,31 +255,7 @@
                             </h2>
                             <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqCVT">
                                 <div class="accordion-body">
-                                    Sangat disarankan untuk membersihkan area CVT setiap 3.000 - 5.000 KM atau setiap kali Anda melakukan ganti oli rutin agar tumpukan debu tidak mengeras.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
-                                    Apakah bensin yang buruk bisa menyebabkan gredek?
-                                </button>
-                            </h2>
-                            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqCVT">
-                                <div class="accordion-body">
-                                    Tidak secara langsung. Gredek murni berasal dari sektor transmisi (CVT), namun bensin yang buruk bisa menyebabkan mesin tidak stabil (<i>brebet</i>) yang mungkin terasa seperti getaran.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
-                                    Apa bahayanya jika CVT bergetar terus dibiarkan?
-                                </button>
-                            </h2>
-                            <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqCVT">
-                                <div class="accordion-body">
-                                    Dibiarkan terlalu lama akan mempercepat keausan pada kampas ganda dan mangkok kopling, bahkan bisa menyebabkan V-Belt putus karena panas berlebih akibat selip.
+                                    Sangat disarankan untuk membersihkan area CVT setiap 3.000 - 5.000 KM atau setiap kali Anda melakukan ganti oli rutin.
                                 </div>
                             </div>
                         </div>
@@ -254,10 +263,10 @@
 
                     <!-- Profil Penulis -->
                     <div class="author-box mb-4">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Penulis" class="author-img rounded-circle">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Penulis" class="author-img">
                         <div>
                             <h5 class="fw-bold mb-1">Ditulis oleh: Dimas Pratama</h5>
-                            <p class="text-muted small mb-0">Kepala Mekanik VespaMatic dengan pengalaman lebih dari 7 tahun menangani berbagai masalah teknis skuter Italia.</p>
+                            <p class="text-muted small mb-0">Kepala Mekanik VespaMatic dengan pengalaman lebih dari 7 tahun menangani teknis skuter Italia.</p>
                         </div>
                     </div>
 
@@ -273,7 +282,7 @@
         </div>
     </main>
 
-    <!-- Artikel Terkait (image_75975a.png style) -->
+    <!-- Artikel Terkait -->
     <section class="py-5 bg-light border-top">
         <div class="container">
             <h2 class="text-center fw-bold mb-5">Artikel <span class="text-coral">Terkait</span></h2>
@@ -283,7 +292,7 @@
                         <img src="image/otomotif vespa.webp" class="card-img-top" alt="Servis Berkala">
                         <div class="card-body">
                             <h5 class="card-title">Panduan Servis Berkala Vespa Matic</h5>
-                            <p class="card-text">Jangan tunggu rusak! Simak jadwal rutin ganti oli dan perawatan mesin i-get Anda.</p>
+                            <p class="card-text">Jangan tunggu rusak! Simak jadwal rutin ganti oli dan perawatan mesin i-get.</p>
                             <a href="servis_berkala_vespa.html" class="btn-baca">Baca Artikel</a>
                         </div>
                     </div>
@@ -292,8 +301,8 @@
                     <div class="related-card">
                         <img src="image/vespa modif.webp" class="card-img-top" alt="Modifikasi Vespa">
                         <div class="card-body">
-                            <h5 class="card-title">Panduan Modifikasi Vespa: Performa & Estetika</h5>
-                            <p class="card-text">Tips cerdas upgrade bagian kirian untuk performa lebih responsif tanpa gredek.</p>
+                            <h5 class="card-title">Panduan Modifikasi Vespa Matic</h5>
+                            <p class="card-text">Tips cerdas upgrade bagian kirian untuk performa lebih responsif.</p>
                             <a href="modifikasi_vespa.html" class="btn-baca">Baca Artikel</a>
                         </div>
                     </div>
@@ -302,8 +311,8 @@
                     <div class="related-card">
                         <img src="image/aksesoris vespa.webp" class="card-img-top" alt="Aksesoris Vespa">
                         <div class="card-body">
-                            <h5 class="card-title">5 Aksesoris Wajib Vespa untuk Touring</h5>
-                            <p class="card-text">Lengkapi unit Anda dengan perlindungan bodi dan aksesoris penunjang kenyamanan.</p>
+                            <h5 class="card-title">5 Aksesoris Wajib Vespa Touring</h5>
+                            <p class="card-text">Lengkapi unit Anda dengan perlindungan bodi dan aksesoris kenyamanan.</p>
                             <a href="aksesoris_wajib_vespa.html" class="btn-baca">Baca Artikel</a>
                         </div>
                     </div>
@@ -312,7 +321,7 @@
         </div>
     </section>
 
-    <!-- Footer (image_7580f0.png style) -->
+    <!-- Footer Revised -->
     <footer class="custom-footer">
         <div class="container">
             <div class="row">
@@ -330,16 +339,17 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Beranda</a></li>
                         <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="index.html#product">Lini Produk</a></li>
+                        <li><a href="produk.html">Produk</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                     <h5 class="footer-heading">Layanan Kami</h5>
                     <ul class="footer-links">
-                        <li><a href="#"><i class="fas fa-motorcycle text-teal me-2"></i> Penjualan Unit Baru</a></li>
+                        <li><a href="#"><i class="fas fa-motorcycle text-teal me-2"></i> Penjualan Baru</a></li>
                         <li><a href="#"><i class="fas fa-tools text-teal me-2"></i> Servis Berkala</a></li>
-                        <li><a href="#"><i class="fas fa-cogs text-teal me-2"></i> Suku Cadang Asli</a></li>
+                        <li><a href="#"><i class="fas fa-cogs text-teal me-2"></i> Suku Cadang</a></li>
+                        <li><a href="#"><i class="fas fa-file-invoice-dollar text-teal me-2"></i> Konsultasi Kredit</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -352,14 +362,9 @@
                         <i class="fas fa-phone-alt"></i>
                         <span>+62 812-3456-7890</span>
                     </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>info@vespamatic.com</span>
-                    </div>
                 </div>
             </div>
 
-            <!-- Footer Bottom / Copyright Section -->
             <div class="footer-bottom">
                 &copy; 2026 VespaMatic Dealer. All Rights Reserved.
             </div>
@@ -373,6 +378,26 @@
     <!-- Scripts -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Sticky Navbar Scroll-Up Logic
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scroll Down - Hide Navbar
+                navbar.classList.remove('nav-down');
+                navbar.classList.add('nav-up');
+            } else {
+                // Scroll Up - Show Navbar
+                navbar.classList.remove('nav-up');
+                navbar.classList.add('nav-down');
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // Share Logic
         document.addEventListener("DOMContentLoaded", function() {
             var url = encodeURIComponent(window.location.href);
             var title = encodeURIComponent(document.title);
@@ -381,6 +406,7 @@
             document.getElementById('shareWA').href = "https://api.whatsapp.com/send?text=" + title + "%20" + url;
         });
 
+        // Scroll Top Logic
         let topBtn = document.getElementById("floatTopBtn");
         window.onscroll = function() {
             if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) topBtn.style.display = "flex";

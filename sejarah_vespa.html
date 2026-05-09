@@ -38,12 +38,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* --- Variabel Warna --- */
         :root {
             --toasted-coral: #E07A5F;
             --light-teal: #4DB6AC;
             --coral-hover: #c9684f;
         }
 
+        /* --- Fix Anti Goyang Kanan Kiri & Layout --- */
         html, body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
@@ -52,7 +54,32 @@
             background-color: #fcfcfc;
         }
 
-        /* Navbar No Gap */
+        /* --- Navbar Sticky Scroll-Up System --- */
+        .navbar {
+            transition: transform 0.4s ease-in-out, background-color 0.3s;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+        .navbar.nav-up {
+            transform: translateY(-100%);
+        }
+        .navbar.nav-down {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        /* --- Proportional Spacing --- */
+        body { padding-top: 80px; }
+        
+        @media (max-width: 768px) {
+            body { padding-top: 70px; }
+            h1 { font-size: 1.8rem !important; }
+            .article-content { font-size: 1rem; }
+        }
+
+        /* --- Utilitas Warna Custom --- */
         .navbar .nav-link { font-weight: 500; color: #333; transition: 0.3s; }
         .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--toasted-coral); }
 
@@ -61,7 +88,7 @@
         .btn-coral { background-color: var(--toasted-coral); color: white; border: none; border-radius: 25px; padding: 10px 25px; transition: 0.3s;}
         .btn-coral:hover { background-color: var(--coral-hover); color: white; }
         
-        /* Article Styling */
+        /* --- Article Styling --- */
         .article-content { font-size: 1.1rem; line-height: 1.8; color: #4a4a4a; }
         .article-content h2 { font-weight: 700; color: #2d2d2d; margin-top: 2rem; margin-bottom: 1rem; }
         
@@ -72,25 +99,29 @@
         
         figcaption { font-size: 0.85rem; color: #6c757d; text-align: center; margin-top: 8px; font-style: italic; }
         
+        /* --- Author Box Mobile Proportions --- */
         .author-box { display: flex; align-items: center; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 3rem; }
-        .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px; }
+        .author-img { width: 80px; height: 80px; aspect-ratio: 1/1; border-radius: 50%; object-fit: cover; margin-right: 20px; flex-shrink: 0; }
+        
+        @media (max-width: 576px) {
+            .author-box { flex-direction: column; text-align: center; }
+            .author-img { margin-right: 0; margin-bottom: 15px; }
+        }
         
         .share-btn { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: white; margin-right: 10px; transition: 0.3s; text-decoration: none; }
         .share-fb { background-color: #1877f2; } 
         .share-tw { background-color: #1da1f2; } 
         .share-wa { background-color: #25d366; }
 
-        /* Floating Buttons */
+        /* --- Floating Buttons --- */
         .float-btn { position: fixed; right: 25px; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; text-decoration: none; transition: 0.3s; }
         .float-wa { bottom: 25px; background-color: #25D366; }
         .float-wa:hover { background-color: #1ebe58; transform: scale(1.1); color: white;}
-        .float-top { bottom: 95px; background-color: var(--light-teal); display: none; border: none; cursor: pointer; }
+        .float-top { bottom: 95px; background-color: var(--light-teal); border: none; cursor: pointer; display: none; }
         .float-top:hover { transform: scale(1.1); color: white;}
 
-        /* STYLING ARTIKEL TERKAIT SESUAI REFERENSI GAMBAR */
-        .related-section {
-            background-color: #f5f5f5;
-        }
+        /* --- Related Articles Card --- */
+        .related-section { background-color: #f5f5f5; }
         .related-card {
             border: none;
             border-radius: 15px;
@@ -98,31 +129,13 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             transition: 0.3s;
             background: #fff;
+            height: 100%;
         }
-        .related-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-        .related-card .card-img-top {
-            height: 220px;
-            object-fit: cover;
-        }
-        .related-card .card-body {
-            padding: 25px;
-        }
-        .related-card .card-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            line-height: 1.4;
-            margin-bottom: 12px;
-            color: #222;
-        }
-        .related-card .card-text {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 25px;
-            line-height: 1.5;
-        }
+        .related-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .related-card .card-img-top { height: 220px; object-fit: cover; }
+        .related-card .card-body { padding: 25px; display: flex; flex-direction: column;}
+        .related-card .card-title { font-size: 1.15rem; font-weight: 700; line-height: 1.4; margin-bottom: 12px; color: #222; }
+        .related-card .card-text { font-size: 0.95rem; color: #666; margin-bottom: 25px; line-height: 1.5; }
         .related-card .btn-read {
             background-color: #E07A5F;
             color: #fff;
@@ -135,17 +148,24 @@
             text-decoration: none;
             display: inline-block;
             text-align: center;
+            margin-top: auto;
         }
-        .related-card .btn-read:hover {
-            background-color: #c9684f;
-            color: #fff;
+        .related-card .btn-read:hover { background-color: #c9684f; color: #fff; }
+
+        /* --- Footer Proportions Mobile --- */
+        @media (max-width: 991.98px) {
+            .bg-dark { text-align: center !important; }
+            .bg-dark .d-flex { justify-content: center !important; }
+            .bg-dark ul { padding-left: 0; }
+            .bg-dark .opacity-75 i { margin-right: 8px; }
+            .bg-dark .social-icons a { margin: 0 7px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+    <!-- Navbar dengan Logika Scroll-Up -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 nav-down">
         <div class="container">
             <a class="navbar-brand text-coral fw-bold" href="index.html">
                 Vespa<span class="text-teal">Matic</span> <br>
@@ -165,7 +185,7 @@
         </div>
     </nav>
 
-    <!-- Main Article -->
+    <!-- Main Content -->
     <main class="container pt-0 pb-5">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -231,18 +251,44 @@
 
                     <hr class="my-5">
 
-                    <!-- FAQ -->
-                    <h3 class="fw-bold mb-4">FAQ Sejarah Vespa</h3>
-                    <div class="accordion mb-5 shadow-sm" id="faqSejarah">
+                    <!-- FAQ Sejarah Vespa -->
+                    <h3 class="fw-bold mb-4">FAQ (Sejarah Singkat Vespa)</h3>
+                    <div class="accordion mb-5 shadow-sm" id="faqSejarahVespa">
                         <div class="accordion-item">
                             <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
-                                    Kenapa dinamakan "Vespa"?
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqSejarah1" aria-expanded="true">
+                                    Kapan Vespa pertama kali diciptakan dan oleh siapa?
                                 </button>
                             </h2>
-                            <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqSejarah">
+                            <div id="faqSejarah1" class="accordion-collapse collapse show" data-bs-parent="#faqSejarahVespa">
                                 <div class="accordion-body">
-                                    Ketika Enrico Piaggio melihat prototipe MP6, ia berseru: "Sembra una vespa!" (Terlihat seperti tawon!), karena bentuk bodinya yang lebar di bagian belakang dan ramping di tengah.
+                                    Vespa pertama kali diproduksi pada bulan April tahun 1946 oleh perusahaan asal Italia, Piaggio. Desain ikonik skuter ini dirancang oleh seorang insinyur aeronautika bernama Corradino D'Ascanio.
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqSejarah2" aria-expanded="false">
+                                    Mengapa skuter ini dinamakan "Vespa"?
+                                </button>
+                            </h2>
+                            <div id="faqSejarah2" class="accordion-collapse collapse" data-bs-parent="#faqSejarahVespa">
+                                <div class="accordion-body">
+                                    Kata "Vespa" diambil dari bahasa Italia yang berarti "Tawon". Nama ini tercetus secara spontan dari Enrico Piaggio saat melihat prototipe MP6. Desain bodi belakangnya yang membulat (tepong) serta suara mesinnya yang mendengung tajam membuatnya teringat pada seekor tawon.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqSejarah3" aria-expanded="false">
+                                    Apa tujuan awal dibuatnya motor Vespa?
+                                </button>
+                            </h2>
+                            <div id="faqSejarah3" class="accordion-collapse collapse" data-bs-parent="#faqSejarahVespa">
+                                <div class="accordion-body">
+                                    Vespa diciptakan pasca Perang Dunia II sebagai solusi transportasi massal yang murah, modern, dan andal untuk masyarakat Italia saat masa rekonstruksi. Desain bodinya (monocoque) sengaja dirancang menutupi mesin untuk melindungi pakaian pengendara dari kotoran, debu, dan cipratan lumpur.
                                 </div>
                             </div>
                         </div>
@@ -269,7 +315,7 @@
         </div>
     </main>
 
-    <!-- ARTIKEL TERKAIT - SESUAI GAMBAR REFERENSI -->
+    <!-- ARTIKEL TERKAIT -->
     <section class="py-5 related-section border-top">
         <div class="container">
             <h3 class="fw-bold text-center mb-5">Artikel <span class="text-coral">Terkait</span></h3>
@@ -319,7 +365,7 @@
                 <div class="col-lg-3 col-md-6 mb-4">
                     <h4 class="text-white fw-bold mb-3">Vespa<span class="text-teal">Matic</span></h4>
                     <p class="text-white opacity-75">Solusi berkendara penuh gaya untuk Anda. Dealer resmi dengan pelayanan prima dan suku cadang asli.</p>
-                    <div class="d-flex justify-content-center justify-content-md-start mt-3">
+                    <div class="d-flex justify-content-center justify-content-md-start mt-3 social-icons">
                         <a href="#" class="text-white fs-4 me-3 opacity-75 hover-coral"><i class="fab fa-facebook"></i></a>
                         <a href="#" class="text-white fs-4 me-3 opacity-75 hover-coral"><i class="fab fa-instagram"></i></a>
                         <a href="#" class="text-white fs-4 opacity-75 hover-coral"><i class="fab fa-youtube"></i></a>
@@ -331,7 +377,7 @@
                     <ul class="list-unstyled">
                         <li class="mb-2"><a href="index.html" class="text-white text-decoration-none opacity-75">Beranda</a></li>
                         <li class="mb-2"><a href="about.html" class="text-white text-decoration-none opacity-75">Tentang Kami</a></li>
-                        <li class="mb-2"><a href="index.html#product" class="text-white text-decoration-none opacity-75">Lini Produk</a></li>
+                        <li class="mb-2"><a href="produk.html" class="text-white text-decoration-none opacity-75">Produk</a></li>
                         <li class="mb-2"><a href="blog.html" class="text-white text-decoration-none opacity-75">Blog</a></li>
                     </ul>
                 </div>
@@ -342,6 +388,7 @@
                         <li class="mb-2 opacity-75"><i class="fas fa-motorcycle text-teal me-2"></i> Penjualan Unit Baru</li>
                         <li class="mb-2 opacity-75"><i class="fas fa-tools text-teal me-2"></i> Servis Berkala</li>
                         <li class="mb-2 opacity-75"><i class="fas fa-cogs text-teal me-2"></i> Suku Cadang Asli</li>
+                        <li class="mb-2 opacity-75"><i class="fas fa-hand-holding-usd text-teal me-2"></i> Konsultasi Kredit</li>
                     </ul>
                 </div>
                 <!-- Kontak -->
@@ -366,6 +413,34 @@
     <!-- Scripts -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Logika Navbar Sticky Scroll-Up dan Float Top Button
+        let topBtn = document.getElementById("floatTopBtn");
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Navbar Scroll-Up Logic
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scroll Ke Bawah -> Sembunyikan Navbar
+                navbar.classList.remove('nav-down');
+                navbar.classList.add('nav-up');
+            } else {
+                // Scroll Ke Atas -> Tampilkan Navbar
+                navbar.classList.remove('nav-up');
+                navbar.classList.add('nav-down');
+            }
+            lastScrollTop = scrollTop;
+
+            // Tombol Back to Top Logic
+            if (scrollTop > 200) {
+                topBtn.style.display = "flex";
+            } else {
+                topBtn.style.display = "none";
+            }
+        });
+
         document.addEventListener("DOMContentLoaded", function() {
             var url = encodeURIComponent(window.location.href);
             var title = encodeURIComponent(document.title);
@@ -374,11 +449,6 @@
             document.getElementById('shareWA').href = "https://api.whatsapp.com/send?text=" + title + "%20" + url;
         });
 
-        let topBtn = document.getElementById("floatTopBtn");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) topBtn.style.display = "flex";
-            else topBtn.style.display = "none";
-        };
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
     </script>
 

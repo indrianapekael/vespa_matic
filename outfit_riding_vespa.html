@@ -75,7 +75,7 @@
         figcaption { font-size: 0.85rem; color: #6c757d; text-align: center; margin-top: 8px; font-style: italic; }
         
         .author-box { display: flex; align-items: center; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 3rem; }
-        .author-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin-right: 20px; }
+        .author-img { width: 80px; height: 80px; aspect-ratio: 1/1; border-radius: 50%; object-fit: cover; margin-right: 20px; flex-shrink: 0; }
         
         .share-btn { width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; color: white; margin-right: 10px; transition: 0.3s; text-decoration: none; font-size: 1.1rem;}
         .share-fb { background-color: #1877f2; } 
@@ -221,22 +221,50 @@
 
                     <hr class="my-5">
 
-                    <!-- FAQ -->
-                    <h3 class="fw-bold mb-4">FAQ Outfit Riding Vespa</h3>
-                    <div class="accordion mb-5 shadow-sm" id="faqOutfit">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
-                                    Apakah boleh memakai celana pendek saat riding Vespa?
-                                </button>
-                            </h2>
-                            <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqOutfit">
-                                <div class="accordion-body">
-                                    Sangat tidak disarankan demi keselamatan. Celana panjang melindungi kulit dari luka gesek jika terjadi insiden serta panas mesin.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- FAQ Outfit Riding Vespa -->
+                    <h3 class="fw-bold mb-4">FAQ (Outfit & Keamanan Berkendara)</h3>
+                    <div class="accordion mb-5 shadow-sm" id="faqOutfitVespa">
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOutfit1" aria-expanded="true">
+                Apa jenis jaket yang cocok untuk riding Vespa agar tetap aman tapi tidak terlihat kaku?
+            </button>
+        </h2>
+        <div id="faqOutfit1" class="accordion-collapse collapse show" data-bs-parent="#faqOutfitVespa">
+            <div class="accordion-body">
+                Untuk riding Vespa, Anda bisa memilih jaket berbahan kulit asli, denim tebal, atau kanvas parasut (seperti model jaket Harrington atau Bomber). Pastikan jaket tersebut memiliki material yang cukup tebal untuk menahan terpaan angin dan meminimalisir gesekan, namun tetap memberikan kesan kasual, elegan, dan menunjang estetika klasik Vespa Anda.
+            </div>
+        </div>
+    </div>
+    
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqOutfit2" aria-expanded="false">
+                Bolehkah riding Vespa menggunakan sepatu kets atau sneakers biasa?
+            </button>
+        </h2>
+        <div id="faqOutfit2" class="accordion-collapse collapse" data-bs-parent="#faqOutfitVespa">
+            <div class="accordion-body">
+                Untuk alasan keamanan, sangat disarankan menggunakan sepatu yang menutupi mata kaki (seperti sepatu <i>boots</i> kulit atau sneakers tipe <i>high-top</i>). Selain sangat cocok dipadukan dengan gaya retro, sepatu jenis ini memberikan perlindungan ekstra pada pergelangan kaki dari benturan, kerikil, atau panas mesin dibandingkan sneakers potongan pendek atau sandal.
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-item">
+        <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqOutfit3" aria-expanded="false">
+                Apakah sarung tangan (gloves) wajib dipakai saat riding Vespa harian?
+            </button>
+        </h2>
+        <div id="faqOutfit3" class="accordion-collapse collapse" data-bs-parent="#faqOutfitVespa">
+            <div class="accordion-body">
+                Ya, sarung tangan sangat penting untuk dipakai baik saat touring maupun riding harian. Selain melindungi punggung dan telapak tangan dari sengatan matahari serta potensi luka jika terjadi insiden, sarung tangan berbahan kulit (<i>leather gloves</i>) dengan model klasik akan membuat cengkeraman ke tuas gas lebih mantap sekaligus mendongkrak penampilan Anda secara keseluruhan.
+            </div>
+        </div>
+    </div>
+
+</div>
 
                     <!-- Profil Penulis -->
                     <div class="author-box mb-4">
@@ -316,7 +344,7 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Beranda</a></li>
                         <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="index.html#product">Lini Produk</a></li>
+                        <li><a href="produk.html">Produk</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
@@ -326,6 +354,7 @@
                         <li><a href="#"><i class="fas fa-motorcycle text-teal me-2"></i> Penjualan Unit Baru</a></li>
                         <li><a href="#"><i class="fas fa-tools text-teal me-2"></i> Servis Berkala</a></li>
                         <li><a href="#"><i class="fas fa-cogs text-teal me-2"></i> Suku Cadang Asli</a></li>
+                        <li><i class="fas fa-hand-holding-usd text-teal me-2"></i> Konsultasi Kredit</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">

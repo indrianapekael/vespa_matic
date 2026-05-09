@@ -54,7 +54,22 @@
             background-color: #fcfcfc;
         }
 
-        /* Navbar No Gap */
+        /* Navbar Sticky Scroll-Up */
+        .navbar {
+            transition: transform 0.4s ease-in-out, background-color 0.3s;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1030;
+        }
+        .navbar.nav-up {
+            transform: translateY(-100%);
+        }
+        .navbar.nav-down {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
         .navbar .nav-link { font-weight: 500; color: #333; transition: 0.3s; }
         .navbar .nav-link:hover, .navbar .nav-link.active { color: var(--toasted-coral); }
 
@@ -63,9 +78,16 @@
         .btn-coral { background-color: var(--toasted-coral); color: white; border: none; border-radius: 25px; padding: 10px 25px; transition: 0.3s;}
         .btn-coral:hover { background-color: var(--coral-hover); color: white; }
         
+        /* Typography & Spacing Proportions */
         .article-content { font-size: 1.1rem; line-height: 1.8; color: #4a4a4a; }
         .article-content h2 { font-weight: 700; color: #2d2d2d; margin-top: 2rem; margin-bottom: 1rem; }
         
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem !important; }
+            .article-content { font-size: 1rem; }
+            .navbar-brand { font-size: 1.2rem; }
+        }
+
         .toc-box { background-color: #f8f9fa; border-left: 4px solid var(--toasted-coral); border-radius: 8px; padding: 20px; }
         .toc-btn { text-decoration: none; color: #333; font-weight: bold; width: 100%; text-align: left; background: none; border: none; padding: 0; display: flex; justify-content: space-between; align-items: center; }
         
@@ -88,7 +110,7 @@
         .float-top { bottom: 95px; background-color: var(--light-teal); border: none; cursor: pointer; display: none; }
         .float-top:hover { transform: scale(1.1); color: white;}
 
-        /* Related Articles (Referensi image_7580f0.png) */
+        /* Related Articles */
         .related-card {
             border: none;
             border-radius: 12px;
@@ -99,13 +121,13 @@
         }
         .related-card:hover { transform: translateY(-5px); }
         .related-card img { border-radius: 12px 12px 0 0; height: 200px; object-fit: cover; }
-        .related-card .card-body { padding: 2rem; }
+        .related-card .card-body { padding: 1.5rem; }
         .related-card .card-title { font-size: 1.1rem; font-weight: 700; line-height: 1.4; margin-bottom: 0.5rem; }
         .related-card .card-text { font-size: 0.9rem; color: #666; margin-bottom: 1.5rem; }
         .btn-baca { background-color: var(--toasted-coral); color: white; border-radius: 50px; padding: 10px; text-align: center; text-decoration: none; display: block; width: 100%; font-weight: 500; transition: 0.3s; }
         .btn-baca:hover { background-color: var(--coral-hover); color: white; }
 
-        /* Footer (Referensi image_7580f0.png) */
+        /* Footer Mobile Optimization */
         .custom-footer { background-color: #212529; color: #fff; padding: 60px 0 30px 0; }
         .footer-brand { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; }
         .footer-desc { font-size: 0.95rem; line-height: 1.6; color: #adb5bd; margin-bottom: 1.5rem; }
@@ -119,18 +141,31 @@
         .social-icons a { color: #fff; font-size: 1.2rem; margin-right: 15px; transition: 0.3s; }
         .social-icons a:hover { color: var(--toasted-coral); }
 
+        @media (max-width: 991px) {
+            .custom-footer { text-align: center; }
+            .footer-contact-item { justify-content: center; }
+            .social-icons { margin-bottom: 2rem; }
+            .social-icons a { margin: 0 10px; }
+            .footer-contact-item i { margin-right: 8px; }
+            .author-box { flex-direction: column; text-align: center; }
+            .author-img { margin-right: 0; margin-bottom: 15px; }
+        }
+
         /* Copyright Bar */
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 40px; padding-top: 25px; }
         .copyright-text { color: #adb5bd; font-size: 0.9rem; margin: 0; }
+        
+        /* Padding for Sticky Navbar */
+        body { padding-top: 70px; }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2">
+    <!-- Navbar Sticky Scroll -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-2 nav-down">
         <div class="container">
             <a class="navbar-brand text-coral fw-bold" href="index.html">
-                Vespa<span class="text-teal">Matic</span> <br>
+                Vespa<span class="text-teal">Matic</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -165,14 +200,13 @@
                 <h1 class="fw-bold mb-3" style="font-size: 2.5rem; color: #222;">Panduan Memilih Helm Vespa yang Aman dan Stylish</h1>
                 <p class="text-muted mb-4"><i class="fas fa-calendar-alt me-2"></i> 06 Mei 2026 &nbsp; | &nbsp; <i class="fas fa-helmet-safety me-2"></i> Aksesoris & Keamanan</p>
 
-                <!-- Gambar 1 (Atas) -->
+                <!-- Gambar 1 -->
                 <figure class="mb-4">
                     <img src="image/helm retro.webp" class="img-fluid rounded-3 shadow-sm w-100" alt="Helm Vespa Klasik">
                     <figcaption>Pilihan helm retro yang memberikan perlindungan optimal sekaligus memperkuat karakter pengendara Vespa.</figcaption>
                 </figure>
 
                 <div class="article-content">
-                    <!-- Ringkasan -->
                     <p class="lead fw-normal">Helm bukan sekadar alat pelindung kepala, bagi pengendara Vespa, helm adalah pernyataan gaya. Namun, memilih helm yang tepat memerlukan pertimbangan antara estetika retro dan fitur keamanan modern. Simak panduan lengkap kami untuk menemukan helm impian Anda.</p>
 
                     <!-- Table of Content -->
@@ -193,7 +227,6 @@
                     <h2 id="jenis-helm">1. Jenis Helm Vespa Populer</h2>
                     <p>Ada dua aliran utama dalam memilih helm untuk Vespa: <b>Half Face Retro</b> (seperti tipe Bogo atau Open Face klasik) dan <b>Full Face Retro</b>. Half face menawarkan visibilitas luas dan sirkulasi udara yang baik untuk perkotaan, sementara full face memberikan proteksi maksimal pada area dagu saat perjalanan jauh atau touring.</p>
 
-                    <!-- Baca Juga -->
                     <div class="baca-juga shadow-sm">
                         <span class="text-coral"><i class="fas fa-book-open me-2"></i> Baca Juga:</span> 
                         <a href="modifikasi_vespa.html" class="text-decoration-none text-dark ms-1">Panduan Modifikasi Vespa Matic: Performa & Estetika</a>
@@ -202,7 +235,7 @@
                     <h2 id="standar-keamanan">2. Memahami Standar Keamanan (SNI & DOT)</h2>
                     <p>Gaya tidak boleh mengabaikan nyawa. Pastikan helm Anda minimal memiliki sertifikasi <b>SNI (Standar Nasional Indonesia)</b>. Jika Anda sering touring, mencari sertifikasi internasional seperti <b>DOT</b> atau <b>ECE</b> adalah pilihan bijak karena standar pengujian benturan yang lebih ketat.</p>
 
-                    <!-- Gambar 2 (Tengah) -->
+                    <!-- Gambar 2 -->
                     <figure class="my-5">
                         <img src="image/detail helm.webp" class="img-fluid rounded-3 shadow-sm w-100" alt="Detail Interior Helm Premium" loading="lazy">
                         <figcaption>Kualitas busa interior yang lembut dan dapat dilepas-pasang sangat menunjang kenyamanan riding.</figcaption>
@@ -213,7 +246,6 @@
 
                     <hr class="my-5">
 
-                    <!-- FAQ -->
                     <h3 class="fw-bold mb-4">FAQ Seputar Helm Vespa</h3>
                     <div class="accordion mb-5 shadow-sm" id="faqHelm">
                         <div class="accordion-item">
@@ -240,18 +272,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
-                                    Bagaimana cara mengetahui ukuran helm yang pas?
-                                </button>
-                            </h2>
-                            <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqHelm">
-                                <div class="accordion-body">
-                                    Ukur lingkar kepala Anda tepat di atas alis. Helm yang pas akan terasa sedikit menekan pipi, tidak membuat pusing, dan tidak mudah bergeser saat kepala digelengkan.
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                     <!-- Profil Penulis -->
@@ -275,7 +295,7 @@
         </div>
     </main>
 
-    <!-- Artikel Terkait (Referensi image_7580f0.png) -->
+    <!-- Artikel Terkait -->
     <section class="py-5 bg-light border-top">
         <div class="container">
             <h2 class="text-center fw-bold mb-5">Artikel <span class="text-coral">Terkait</span></h2>
@@ -294,7 +314,7 @@
                     <div class="related-card">
                         <img src="image/aksesoris vespa.webp" class="card-img-top" alt="Aksesoris Vespa">
                         <div class="card-body">
-                            <h5 class="card-title">5 Aksesoris Wajib Punya untuk Touring Kesayangan</h5>
+                            <h5 class="card-title">5 Aksesoris Wajib Punya untuk Touring</h5>
                             <p class="card-text">Mulai dari floormat, top box, hingga crash bar. Tambah utilitas tanpa mengurangi estetika.</p>
                             <a href="aksesoris_wajib_vespa.html" class="btn-baca">Baca Artikel</a>
                         </div>
@@ -304,8 +324,8 @@
                     <div class="related-card">
                         <img src="image/outfit vespa.webp" class="card-img-top" alt="Outfit Riding Vespa">
                         <div class="card-body">
-                            <h5 class="card-title">Inspirasi Outfit Riding Vespa yang Stylish & Aman</h5>
-                            <p class="card-text">Padu padan jaket, sarung tangan kulit, dan boots untuk tampil maksimal saat sunday morning ride.</p>
+                            <h5 class="card-title">Inspirasi Outfit Riding Vespa yang Stylish</h5>
+                            <p class="card-text">Padu padan jaket, sarung tangan kulit, dan boots untuk tampil maksimal saat sunday ride.</p>
                             <a href="outfit_riding_vespa.html" class="btn-baca">Baca Artikel</a>
                         </div>
                     </div>
@@ -314,11 +334,11 @@
         </div>
     </section>
 
-    <!-- Footer (Referensi image_7580f0.png) -->
+    <!-- Footer Revised -->
     <footer class="custom-footer">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                     <div class="footer-brand">Vespa<span class="text-teal">Matic</span></div>
                     <p class="footer-desc">Solusi berkendara penuh gaya untuk Anda. Dealer resmi dengan pelayanan prima.</p>
                     <div class="social-icons">
@@ -327,21 +347,22 @@
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                     <h5 class="footer-heading">Tautan Cepat</h5>
                     <ul class="footer-links">
                         <li><a href="index.html">Beranda</a></li>
                         <li><a href="about.html">Tentang Kami</a></li>
-                        <li><a href="index.html#product">Lini Produk</a></li>
+                        <li><a href="produk.html">Produk</a></li>
                         <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
                     <h5 class="footer-heading">Layanan Kami</h5>
                     <ul class="footer-links">
                         <li><a href="#"><i class="fas fa-motorcycle text-teal me-2"></i> Penjualan Unit Baru</a></li>
                         <li><a href="#"><i class="fas fa-tools text-teal me-2"></i> Servis Berkala</a></li>
                         <li><a href="#"><i class="fas fa-cogs text-teal me-2"></i> Suku Cadang Asli</a></li>
+                        <li><a href="#"><i class="fas fa-file-invoice-dollar text-teal me-2"></i> Konsultasi Kredit</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -361,7 +382,6 @@
                 </div>
             </div>
 
-            <!-- Copyright Bar (Referensi Screenshot 2026-05-06 222422.png) -->
             <div class="row">
                 <div class="col-12 text-center">
                     <div class="footer-bottom">
@@ -379,6 +399,25 @@
     <!-- Scripts -->
     <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Sticky Navbar Scroll Logic
+        let lastScrollTop = 0;
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scroll Down - Hide Navbar
+                navbar.classList.remove('nav-down');
+                navbar.classList.add('nav-up');
+            } else {
+                // Scroll Up - Show Navbar
+                navbar.classList.remove('nav-up');
+                navbar.classList.add('nav-down');
+            }
+            lastScrollTop = scrollTop;
+        });
+
         document.addEventListener("DOMContentLoaded", function() {
             var url = encodeURIComponent(window.location.href);
             var title = encodeURIComponent(document.title);
@@ -395,7 +434,7 @@
         function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); }
     </script>
 
-    <!-- Schema Markup AI Overview -->
+    <!-- Schema Markup -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
